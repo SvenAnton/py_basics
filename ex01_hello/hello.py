@@ -1,5 +1,4 @@
-"""See on esimese ülesande EX01 lahendus. 1. osa on
-nime küsimine. 2. osa on kehamassiindex"""
+"""See on esimese ülesande EX01 lahendus. 1. osa on nime küsimine."""
 
 name = input("What's your name?")   # Küsin kasutajalt nime
 while True:   # Küsin kuni kasutaja sisestab nime.
@@ -15,8 +14,9 @@ while True:   # Küsin kuni kasutaja sisestab nime.
         print(f"{name}, welcome to {school}")   # ja prindi tulemus.
         break   # lõpeta algne tsükkel.
 
-"""Siia tuleb esimese ülesande teine osa. Eraldi muutujana arvutan
-ka kehamassiindeksin(bmi)"""""
+("Siia tuleb esimese ülesande teine osa. Eraldi muutujana arvutan\n"
+ "ka kehamassiindeksin(bmi)"
+ "")
 
 
 mass = float(input("Insert your weigth in kilograms."))    # küsin massi.
@@ -26,6 +26,6 @@ bmi = mass / (heigth * heigth)   # arvutan kehamassindeksi
 if bmi < 18.5:   # alakaalulisuse tingimuse kontrollimine.
     print(f"{bmi}, alakaaluline")
 elif bmi < 24.9:   # normaalkaalu tinimuste kontroll
-   print(f"{bmi}, normaalkaal")
+    print(f"{bmi}, normaalkaal")
 else:
     print(f"{bmi}, ülekaaluline")   # Ülejäänud juhud on ülekaal.

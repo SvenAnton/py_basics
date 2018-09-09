@@ -17,7 +17,7 @@ while True:   # Küsin kuni kasutaja sisestab nime.
 
 """Siia tuleb esimese ülesande teine osa. Teen kõigepealt funktsiooni,
 mis arvutab kehamassiindeksi (bmi) ja seejärel sellest lähtuvalt
-kehatüübi"""
+kehatüübi."""""
 
 def body_values(mass, heigth):
     bmi = mass/(heigth*heigth)   # arvutan kehamassiindeksi.

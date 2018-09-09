@@ -15,22 +15,17 @@ while True:   # Küsin kuni kasutaja sisestab nime.
         print(f"{name}, welcome to {school}")   # ja prindi tulemus.
         break   # lõpeta algne tsükkel.
 
-"""Siia tuleb esimese ülesande teine osa. Teen kõigepealt funktsiooni,
-mis arvutab kehamassiindeksi (bmi) ja seejärel sellest lähtuvalt
-kehatüübi."""""
-
-
-def body_values(mass, heigth):
-    bmi = mass /(heigth *heigth)   # arvutan kehamassiindeksi.
-    if bmi < 18.5:   # alakaalulisuse tingimuse kontrollimine.
-        body_type = "alakaaluline"
-    elif bmi < 24.9:   # normaalkaalu tinimuste kontroll
-        body_type = "normaalkaal"
-    else:
-        body_type = "ülekaaline"   # Ülejäänud juhud on ülekaal.
-    return bmi, body_type    # tagastan kehamassiindeksi ja kehatüübi.
+"""Siia tuleb esimese ülesande teine osa. Eraldi muutujana arvutan
+ka kehamassiindeksin(bmi)"""""
 
 
 mass = float(input("Insert your weigth in kilograms."))    # küsin massi.
 heigth = float(input("Insert your heigth meters."))   # küsin pikkuse.
-print(body_values(mass, heigth))    # prindin tulemuse.
+bmi = mass / (heigth * heigth)   # arvutan kehamassindeksi
+
+if bmi < 18.5:   # alakaalulisuse tingimuse kontrollimine.
+    print(f"{bmi}, alakaaluline")
+elif bmi < 24.9:   # normaalkaalu tinimuste kontroll
+   print(f"{bmi}, normaalkaal")
+else:
+    print(f"{bmi}, ülekaaluline")   # Ülejäänud juhud on ülekaal.

@@ -1,3 +1,4 @@
+# See on kodutöö pr01_kitchen kood
 print("Welcome to the kitchen.")  # prindin tervitava lause
 name = input("What is your name?")  # salvestan nime, mille kasutaja kirjutab pärast küsimust muutujasse "name"
 print(f"Hi there, {name}!")  # kasutan f stringi ja kirjutan muutuja "name" koos lausega

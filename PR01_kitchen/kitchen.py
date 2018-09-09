@@ -8,6 +8,6 @@ if drink == "tea": #kontrollin, kas kasutaja antud vastus oli "tea"
 elif drink == "coffee": #kas vastus oli "coffee"?
     print("Feeling tired?") # ja kui oli, siis prindin selle
 else: #muudel juhtudel, kui ei ole ei "tea" ega "coffee"
-    print("We only serve water.") #prindin selle
+    print("We only serve water.") #prindin muu variandi
 
 

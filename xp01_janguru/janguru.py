@@ -15,25 +15,21 @@ Hetkel on kood väga ressurssimahukas ja ma proovin seda parandada"""
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"See on funktsioon."""
-    pos_after_jump1 = pos1 + jump_distance1
-    pos_after_jump2 = pos2 + jump_distance2
     speed1 = jump_distance1 / sleep1
     speed2 = jump_distance2 / sleep2
-    x = []
-    y = []
     exit = 0
     count = -1
-    if (pos_after_jump1 < pos_after_jump2 and speed1 <= speed2) or (
-            pos_after_jump2 < pos_after_jump1 and speed2 <= speed1):
+    if (pos1 < pos2 and speed1 <= speed2) or (pos2 < pos1 and speed2 <= speed1):
         return -1
     else:
+        pos1 = pos1 + jump_distance1
+        pos2 = pos2 + jump_distance2
         while exit == 0:
-            x.append(pos_after_jump1)
-            y.append(pos_after_jump2)
-            if pos_after_jump1 == pos_after_jump2:
-                return pos_after_jump1
+            if pos1 == pos2:
+                return pos1
                 exit = 1
-            if (len(x) % sleep1) == 0:
-                pos_after_jump1 += jump_distance1
-            if (len(y) % sleep2) == 0:
-                pos_after_jump2 += jump_distance2
+            if (count % sleep1) == 0:
+                pos1 += jump_distance1
+            if (count % sleep2) == 0:
+                pos2 += jump_distance2
+            count += 1

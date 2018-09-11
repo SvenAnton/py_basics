@@ -1,6 +1,5 @@
 """""See on süvapythoni Jänguru lahendus1."""
 
-
 """"Lahenduseks on funktsioon, mis loob mõlema jänese teekonna listina, kus listi indeks on üks ajaühik t ja
 ja arvu suurus näitab distantsi kus viibitakse. t=0 on positsioon pärast esimest hüpet. Selleks olen teinud ka
 eraldi muutujad pos_after_jump1 ja pos_after_jump2. Listid olen praegu mugavuse mõttes jätnud x ja y, vastavalt siis
@@ -16,22 +15,20 @@ Hetkel on kood väga ressurssimahukas ja ma proovin seda parandada"""
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"See on funktsioon."""
-    pos_after_jump1 = pos1 + jump_distance1
-    pos_after_jump2 = pos2 + jump_distance2
     x = []
     y = []
     exit = 0
-    if (pos_after_jump1 < pos_after_jump2  and jump_distance1 / sleep1 <= jump_distance2 / sleep2) or (
-            pos_after_jump2  < pos_after_jump1 and jump_distance2 / sleep2 <= jump_distance1 / sleep1):
+    if (pos1 + jump_distance1 < pos2 + jump_distance2 and jump_distance1 / sleep1 <= jump_distance2 / sleep2) or (
+            pos2 + jump_distance2 < pos1 + jump_distance1 and jump_distance2 / sleep2 <= jump_distance1 / sleep1):
         return -1
     else:
         while exit == 0:
-            x.append(pos_after_jump1)
-            y.append(pos_after_jump2)
-            if pos_after_jump1 == pos_after_jump2:
-                return pos_after_jump1
+            x.append(pos1 + jump_distance1)
+            y.append(pos2 + jump_distance2)
+            if pos1 + jump_distance1 == pos2 + jump_distance2:
+                return pos1 + jump_distance1
                 exit = 1
             if (len(x) % sleep1) == 0:
-                pos_after_jump1 += jump_distance1
+                pos1 += jump_distance1
             if (len(y) % sleep2) == 0:
-                pos_after_jump2 += jump_distance2
+                pos2 += jump_distance2

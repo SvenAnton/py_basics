@@ -40,6 +40,3 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
             count += 1
             del x[0]
             del y[0]
-            print(count)
-            print(x)
-            print(y)

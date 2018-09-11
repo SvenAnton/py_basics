@@ -33,10 +33,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
             if pos_after_jump1 == pos_after_jump2:
                 return pos_after_jump1
                 exit = 1
-            if (count % sleep1) == 0:
+            if (len(x) % sleep1) == 0:
                 pos_after_jump1 += jump_distance1
-            if (count % sleep2) == 0:
+            if (len(y) % sleep2) == 0:
                 pos_after_jump2 += jump_distance2
-            count += 1
-            del x[0]
-            del y[0]

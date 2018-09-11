@@ -1,4 +1,4 @@
-"""""See on süvapythoni Jänguru lahendus"""
+"""""See on süvapythoni Jänguru lahendus1"""
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     pos_after_jump1 = pos1 + jump_distance1

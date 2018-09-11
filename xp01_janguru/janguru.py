@@ -25,4 +25,5 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
                 pos1 += jump_distance1  # kontrollin kõigepealt, kas magamise aeg on läbi. Magamise aeg on
             if (count % sleep2) == 0:   # läbi siis, kui korduste jagub täpselt, st toimub momentaalne hüpe
                 pos2 += jump_distance2  # ja positsiooni väärtus suureneb.
-            count += 1
+            count += 1   # korduste lugeja väärtus suureneb.
+

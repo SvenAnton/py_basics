@@ -19,14 +19,14 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     speed2 = jump_distance2 / sleep2
     exit = 0
     count = -1
+    pos1 = pos1 + jump_distance1
+    pos2 = pos2 + jump_distance2
     if (pos1 < pos2 and speed1 <= speed2) or (pos2 < pos1 and speed2 <= speed1):
         return -1
     else:
-        pos1 = pos1 + jump_distance1
-        pos2 = pos2 + jump_distance2
         while exit == 0:
             if pos1 == pos2:
-                return pos1
+                yield pos1
                 exit = 1
             if (count % sleep1) == 0:
                 pos1 += jump_distance1

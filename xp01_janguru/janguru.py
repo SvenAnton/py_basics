@@ -2,10 +2,14 @@
 
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
-    """"Funktsioonis kasutan täiendavaid muutujaid kiiruse mõõtmiseks (speed1 ja speed2), while loop'ist
-    väljumiseks (exit) ja loop-korduste lugemiseks (count). Funktsiooni esimeses osas küsin if-funktsiooniga
-    võimatud olukorrad ja tagastan nende väärtuse -1. Teises osas jätkan võimalike juhtumitega ja alustan
-    kontrolli jäneste kohtumise osas. Kontrollin mõlemaid jäneseid korraga samadel ajahetkedel."""
+
+    """"Funktsiooni kasutan täiendavaid muutujaid.
+    Need on kiiruse mõõtmiseks (speed1 ja speed2), while loop'ist väljumiseks (exit) ja loop-korduste
+    lugemiseks (count). Funktsiooni esimeses osas küsin if-funktsiooniga võimatud olukorrad ja tagastan
+    nende väärtuse -1. Teises osas jätkan võimalike juhtumitega ja alustan kontrolli jäneste kohtumise osas.
+    Kontrollin mõlemaid jäneseid korraga samadel ajahetkedel.
+    """
+
     speed1 = jump_distance1 / sleep1   # kiirus on liikumine ajahetke t kohta.
     speed2 = jump_distance2 / sleep2
     exit = 0

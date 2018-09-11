@@ -3,6 +3,7 @@
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"Funktsiooni kasutan täiendavaid muutujaid.
+
     Need on kiiruse mõõtmiseks (speed1 ja speed2), while loop'ist väljumiseks (exit) ja loop-korduste
     lugemiseks (count). Funktsiooni esimeses osas küsin if-funktsiooniga võimatud olukorrad ja tagastan
     nende väärtuse -1. Teises osas jätkan võimalike juhtumitega ja alustan kontrolli jäneste kohtumise osas.
@@ -26,4 +27,3 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
             if (count % sleep2) == 0:   # läbi siis, kui korduste jagub täpselt, st toimub momentaalne hüpe
                 pos2 += jump_distance2  # ja positsiooni väärtus suureneb.
             count += 1   # korduste lugeja väärtus suureneb.
-

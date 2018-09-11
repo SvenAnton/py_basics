@@ -15,8 +15,7 @@ Hetkel on kood väga ressurssimahukas ja ma proovin seda parandada"""
 
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
-    """"See on funktsioon"""
-
+    """"See on funktsioon."""
     pos_after_jump1 = pos1 + jump_distance1
     pos_after_jump2 = pos2 + jump_distance2
     speed1 = jump_distance1 / sleep1

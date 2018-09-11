@@ -21,13 +21,12 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     speed1 = jump_distance1 / sleep1
     speed2 = jump_distance2 / sleep2
 
-    x = []
-    y = []
-    exit = 0
-
-    if (pos1 < pos2 and speed1 <= speed2) or (pos2 < pos1 and speed2 <= speed1):
+    if (pos_after_jump1 < pos_after_jump2  and speed1 <= speed2) or (pos_after_jump2  < pos_after_jump1 and speed2 <= speed1):
         return -1
     else:
+        x = []
+        y = []
+        exit = 0
         while exit == 0:
             x.append(pos_after_jump1)
             y.append(pos_after_jump2)

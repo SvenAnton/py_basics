@@ -18,10 +18,9 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"See on funktsioon."""
     pos_after_jump1 = pos1 + jump_distance1
     pos_after_jump2 = pos2 + jump_distance2
-    speed1 = jump_distance1 / sleep1
-    speed2 = jump_distance2 / sleep2
 
-    if (pos_after_jump1 < pos_after_jump2  and speed1 <= speed2) or (pos_after_jump2  < pos_after_jump1 and speed2 <= speed1):
+    if (pos_after_jump1 < pos_after_jump2  and jump_distance1 / sleep1 <= jump_distance2 / sleep2) or (
+            pos_after_jump2  < pos_after_jump1 and jump_distance2 / sleep2 <= jump_distance1 / sleep1):
         return -1
     else:
         x = []

@@ -22,13 +22,13 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     probable_meeting_time_minus_one = round(abs(pos1 - pos2) / abs(speed1 - speed2))
 
 
-    if probable_meeting_time_minus_one > sleep1 and sleep2:
+    if probable_meeting_time_minus_one > ((2*sleep1) or (2*sleep2)):
         if sleep1 < sleep2:
             probable_meeting_time_minus_one = probable_meeting_time_minus_one - sleep2
         else:
             probable_meeting_time_minus_one = probable_meeting_time_minus_one - sleep1
     else:
-        probable_meeting_time_minus_one -= probable_meeting_time_minus_one
+        probable_meeting_time_minus_one = probable_meeting_time_minus_one - 1
 
 
 
@@ -42,9 +42,9 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
 
 
 
-    #print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
-    #print("niipalju on nendelt positsioonidelt jäänud magada: ", to_sleep1, to_sleep2)
-    #print("Võimalik kohtumisaeg miinus üks sleep: ", probable_meeting_time_minus_one)
+    print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
+    print("niipalju on nendelt positsioonidelt jäänud magada: ", to_sleep1, to_sleep2)
+    print("Võimalik kohtumisaeg miinus üks sleep: ", probable_meeting_time_minus_one)
 
     exit = 0
     count = 0
@@ -53,8 +53,8 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         return -1   # tagastan väärtuse, kui kohtumine on võimatu. Kohtumine on võimatu, kui mõlemad: nii
     else:
         while exit == 0:   # teen loop'i
-            #print(f"Jõudsin loopi{pos1, pos2}, tegemist on {count} kordusega")
-            #print(to_sleep1, to_sleep2)
+            print(f"Jõudsin loopi{pos1, pos2}, tegemist on {count} kordusega")
+            print(to_sleep1, to_sleep2)
 
             if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
                 return pos1    # tagastan positsiooni, kui jänesed on koos

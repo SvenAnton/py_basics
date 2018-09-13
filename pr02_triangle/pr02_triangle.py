@@ -17,9 +17,9 @@ def find_triangle_info(a, b, c):
     p = perimeter / 2
     area = round(sqrt((p * (p - a) * (p - b) * (p - c))), 2)
 
-    if (a * a + b * b) < c*c:
+    if (a * a + b * b) < c * c:
         type_by_angle = "obtuse"
-    elif (a * a + b * b) > c*c:
+    elif (a * a + b * b) > c * c:
         type_by_angle = "acute"
     else:
         type_by_angle = "right"

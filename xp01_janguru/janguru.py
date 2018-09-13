@@ -1,6 +1,9 @@
 """""See on süvapythoni Jänguru lahendus1."""
 
 
+"""""See on süvapythoni Jänguru lahendus1."""
+
+
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"Funktsiooni kasutan täiendavaid muutujaid.
 
@@ -13,11 +16,17 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     speed2 = jump_distance2 / sleep2
     exit = 0
     count = -1   # kordused alustan miinus ühest, sest siis on esimene kordus 0 ja vastab ajahetkele t0.
-    pos1 = pos1 + jump_distance1   # t0 on juba esimene hüpe toimunud
-    pos2 = pos2 + jump_distance2
+
+
     if (pos1 < pos2 and speed1 <= speed2) or (pos2 < pos1 and speed2 <= speed1):
         return -1   # tagastan väärtuse, kui kohtumine on võimatu. Kohtumine on võimatu, kui mõlemad: nii
-    else:           # positsiooni kui ka kiiruse väärtused on väiksemad
+    else:
+        pos_difference = abs(pos1 - pos2)
+        speed_difference = abs(speed1 - speed2)
+        pos1 = round((pos_difference / speed_difference) * speed1 + pos1)
+        pos2 = round((pos_difference / speed_difference) * speed2 + pos2)
+        #print(pos1)
+        #print(pos2)
         while exit == 0:   # teen loop'i
             if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
                 return pos1    # tagastan positsiooni, kui jänesed on koos

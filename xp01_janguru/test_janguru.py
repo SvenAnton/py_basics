@@ -27,16 +27,19 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     start_pos2 = pos2 + jump_distance2
 
 
-    pos1 = (probable_meeting_time_minus_one // sleep1) * jump_distance1 + pos1
-    pos2 = (probable_meeting_time_minus_one // sleep2) *jump_distance2 + pos2
+    pos1 = (probable_meeting_time_minus_one // sleep1) * jump_distance1 + start_pos1
+    pos2 = (probable_meeting_time_minus_one // sleep2) *jump_distance2 + start_pos2
+    if pos1 == pos2:
+        return pos1
+
     to_sleep1 = (probable_meeting_time_minus_one % sleep1)
     to_sleep2 = (probable_meeting_time_minus_one % sleep2)
 
 
 
-    #print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
-    #print("niipalju on nendelt positsioonidelt jäänud magada: ", to_sleep1, to_sleep2)
-    #print("Võimalik kohtumisaeg miinus üks: ", probable_meeting_time_minus_one)
+    print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
+    print("niipalju on nendelt positsioonidelt jäänud magada: ", to_sleep1, to_sleep2)
+    print("Võimalik kohtumisaeg miinus üks: ", probable_meeting_time_minus_one)
 
     exit = 0
     count = -1   # kordused alustan miinus ühest, sest siis on esimene kordus 0 ja vastab ajahetkele t0.
@@ -45,10 +48,11 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         return -1   # tagastan väärtuse, kui kohtumine on võimatu. Kohtumine on võimatu, kui mõlemad: nii
     else:
         while exit == 0:   # teen loop'i
+            print("Olen Loopis")
             if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
                 return pos1    # tagastan positsiooni, kui jänesed on koos
                 exit = 1   # ja väljun loop'ist exit väärtust muutes.
-                #print(pos1, pos2)
+                print("Loopi sees positsioonid: ",pos1, pos2)
             if count < to_sleep1 or count < to_sleep2:
                 if to_sleep1 == 0:
                     pos1 += jump_distance1
@@ -66,15 +70,15 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
 
             count += 1
 
-test1 = meet_me(1, 2, 1, 2, 1, 1)
-test2 = meet_me(1, 2, 3, 4, 5, 5)
-test3 = meet_me(10, 7, 7, 5, 8, 6)
-test4 = meet_me(100, 7, 4, 300000, 8, 6)
-test5 = meet_me(1, 7, 1, 15, 5, 1)
-test6 = meet_me(0, 1, 1, 1, 1, 1)
+test1 = meet_me(1, 2, 1, 2, 1, 1)   # 3
+#test2 = meet_me(1, 2, 3, 4, 5, 5)   # -1
+#test3 = meet_me(10, 7, 7, 5, 8, 6)  # 45
+#test4 = meet_me(100, 7, 4, 300, 8, 6)   # 940
+#test5 = meet_me(1, 7, 1, 15, 5, 1)   # 50
+#test6 = meet_me(0, 1, 1, 1, 1, 1)   # -1
 
-print(test4)
-print(test1, test2, test3, test5, test6)
+print(test1)
+#print(test1, test2, test3, test5, test6)
 stop = timeit.default_timer()
 
 print('Time: ', stop - start)

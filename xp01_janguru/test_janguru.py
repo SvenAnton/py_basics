@@ -40,12 +40,13 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     #print("Võimalik kohtumisaeg miinus üks: ", probable_meeting_time_minus_one)
 
     exit = 0
-    count = -1   # kordused alustan miinus ühest, sest siis on esimene kordus 0 ja vastab ajahetkele t0.
+    count = 0   # kordused alustan miinus ühest, sest siis on esimene kordus 0 ja vastab ajahetkele t0.
 
     if (pos1 < pos2 and speed1 <= speed2) or (pos2 < pos1 and speed2 <= speed1):
         return -1   # tagastan väärtuse, kui kohtumine on võimatu. Kohtumine on võimatu, kui mõlemad: nii
     else:
         while exit == 0:   # teen loop'i
+            print(f"Jõudsin loopi{count}")
             if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
                 return pos1    # tagastan positsiooni, kui jänesed on koos
                 exit = 1   # ja väljun loop'ist exit väärtust muutes.

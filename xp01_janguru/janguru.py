@@ -15,10 +15,10 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     if pos1 == pos2:
         return pos1
     elif jump_distance1 == 0 or jump_distance2 == 0:
-        print("not jumping")
+        #print("not jumping")
         return -1
     elif speed_differance == 0:
-        print("Ei liigu edasi")
+        #print("Ei liigu edasi")
         return -1
 
     probable_meeting_time_minus_one = round(abs(pos1 - pos2) / abs(speed1 - speed2))

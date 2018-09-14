@@ -34,18 +34,15 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     to_sleep1 = sleep1 - (probable_meeting_time_minus_one % sleep1)
     to_sleep2 = sleep2 - (probable_meeting_time_minus_one % sleep2)
 
-    print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
-    print(f"niipalju on magadaalgpositsioonilt: {to_sleep2}, {to_sleep1}")
-    print("Võimalik kohtumisaeg miinus üks sleep: ", probable_meeting_time_minus_one)
+    #print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
+    #print(f"niipalju on magadaalgpositsioonilt: {to_sleep2}, {to_sleep1}")
+    #print("Võimalik kohtumisaeg miinus üks sleep: ", probable_meeting_time_minus_one)
 
-    exit = 0
-
-    while exit == 0:   # teen loop'i
-        print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
+    while True:   # teen loop'i
+        #print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
 
         if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
             return pos1    # tagastan positsiooni, kui jänesed on koos
-            exit = 1   # ja väljun loop'ist exit väärtust muutes.
 
         if to_sleep1 == 0:
             pos1 += jump_distance1

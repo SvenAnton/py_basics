@@ -60,25 +60,3 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
                 print(start_pos1, start_pos2, pos1, pos2)
                 print("Hüppas mööda")
                 return -1
-
-#test1 = meet_me(1, 2, 1, 2, 1, 1)   # 3
-#test2 = meet_me(1, 2, 3, 4, 5, 5)   # -1
-#test3 = meet_me(10, 7, 7, 5, 8, 6)  # 45
-#test4 = meet_me(100, 7, 4, 300, 8, 6)   # 940
-#test5 = meet_me(1, 7, 1, 15, 5, 1)   # 50
-#test6 = meet_me(0, 1, 1, 1, 1, 1)   # -1
-
-#print(test1)
-#print(test2)
-#print(test3)
-#print(test4)
-#print(test5)
-#print(test6)
-
-#t1 = meet_me(918674, 5527, 5704, 1919, 2763, 2833) # => 16159432
-#print(t1)
-
-#t16 = meet_me(3, 11, 4, 91, 19, 7)  # => 6152 - tuleb 7197
-
-
-#print(t16 , t17)

@@ -5,6 +5,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
 
     speed1 = jump_distance1 / sleep1   # kiirus on liikumine ajahetke t kohta.
     speed2 = jump_distance2 / sleep2
+
     start_pos1 = pos1 + jump_distance1
     start_pos2 = pos2 + jump_distance2
 
@@ -57,4 +58,5 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         to_sleep2 -= 1
 
         if (start_pos1 < start_pos2) and (pos2 < pos1) or (start_pos2 < start_pos1) and (pos1 < pos2):
-            return -1
+            if abs(pos1 - pos2) > (sleep1 or sleep2):
+                return -1

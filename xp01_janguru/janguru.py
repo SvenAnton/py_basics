@@ -43,7 +43,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
 
         if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
-            return pos1    # tagastan positsiooni, kui jänesed on koos
+            return pos1    # tagastan positsiooni, kui
 
         if to_sleep1 == 0:
             pos1 += jump_distance1

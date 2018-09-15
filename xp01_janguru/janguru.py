@@ -40,7 +40,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     #print(abs(speed1 - speed2), abs(start_pos1 - start_pos2))
 
     while True:   # teen loop'i
-        print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
+        #print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
 
         if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
             return pos1    # tagastan positsiooni, kui
@@ -57,6 +57,6 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
 
         if (((start_pos1 < start_pos2) and (pos2 < pos1)) or ((start_pos2 < start_pos1) and (pos1 < pos2))):
             if abs(pos1 - pos2) > sleep1 * (jump_distance1 or sleep2 * jump_distance2):
-                print(start_pos1, start_pos2, pos1, pos2)
-                print("Hüppas mööda")
+                #print(start_pos1, start_pos2, pos1, pos2)
+                #print("Hüppas mööda")
                 return -1

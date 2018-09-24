@@ -1,12 +1,10 @@
 """Check if given ID code is valid."""
 
-
 import re
 
 
 def check_your_id(id_code: str):
-    """"
-    Funktsioon kontrollib teiste abifunktsioonide abil, kas isikukood on valiidne.
+    """"Funktsioon kontrollib teiste abifunktsioonide abil, kas isikukood on valiidne.
 
     Kõigepealt välistan isikukoodid, mis üldse ei sobi, st koodid, mis sisaldavad tähti
     ja koodid, mis ei ole pikkusega 11. Seejärel kontrollin koodi valiidsust teiste
@@ -15,13 +13,13 @@ def check_your_id(id_code: str):
     if (re.search(r"[a-zA-Z]", id_code) is not None) or (len(id_code) != 11):
         return False
 
-    if check_gender_number(int(id_code[0])) and\
-        check_year_number_two_digits(int(id_code[1:3:])) and\
-        check_month_number(int(id_code[3:5])) and\
-        check_day_number(int(id_code[1:3:]), int(id_code[3:5]), int(id_code[5:7])) and\
-        check_born_order(int(id_code[7:10])) and\
-        check_control_number(id_code):
-            return True
+    if check_gender_number(int(id_code[0])) and \
+            check_year_number_two_digits(int(id_code[1:3:])) and \
+            check_month_number(int(id_code[3:5])) and \
+            check_day_number(int(id_code[1:3:]), int(id_code[3:5]), int(id_code[5:7])) and \
+            check_born_order(int(id_code[7:10])) and \
+            check_control_number(id_code):
+        return True
     else:
         return False
 
@@ -162,7 +160,7 @@ def check_control_number(id_code: str):
             else:
                 return False
         elif kontrollnumber2 % 11 == int(id_code[10]):
-                return True
+            return True
         else:
             return False
     elif kontrollnumber1 % 11 == int(id_code[10]):

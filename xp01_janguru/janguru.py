@@ -12,7 +12,7 @@ def hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2
 
 
 def new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, jump_distance1, jump_distance2):
-    """"See arvutab  uue ja kaugema kohtumiskoha. Lähemalt vt põhifuntksioon."""
+    """"See arvutab uue ja kaugema kohtumiskoha. Lähemalt vt põhifuntksioon."""
     probable_meeting_place_minus = round(abs(start_pos1 - start_pos2) / abs(speed1 - speed2))
     if probable_meeting_place_minus > ((2 * sleep1) or (2 * sleep2)):
         if sleep1 < sleep2:

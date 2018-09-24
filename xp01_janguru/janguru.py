@@ -3,12 +3,12 @@
 
 def hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2):
     """"Välistab lootusetud juhtumid. Muutujad on selgitatud põhifuntsioonis."""
-    if start_pos1 == start_pos2:
-        return start_pos1
-    elif (start_pos1 < start_pos2 and jump_distance1 == 0) or (start_pos2 < start_pos1 and jump_distance2 == 0):
-        return -1
+    if (start_pos1 < start_pos2 and jump_distance1 == 0) or (start_pos2 < start_pos1 and jump_distance2 == 0):
+        return True
     elif (start_pos1 < start_pos2 and speed1 <= speed2) or (start_pos2 < start_pos1 and speed2 <= speed1):
-        return -1
+        return True
+    else:
+        return False
 
 
 def new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, jump_distance1, jump_distance2):
@@ -45,9 +45,14 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     speed2 = jump_distance2 / sleep2
     start_pos1 = pos1 + jump_distance1
     start_pos2 = pos2 + jump_distance2
-    hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2)
 
-    probable_meeting_place_minus = new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2)
+    if start_pos1 == start_pos2:
+        return start_pos1
+
+    if hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2):
+        return -1
+
+    probable_meeting_place_minus = new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, jump_distance1, jump_distance2)
 
     pos1 = (probable_meeting_place_minus // sleep1) * jump_distance1 + start_pos1
     pos2 = (probable_meeting_place_minus // sleep2) * jump_distance2 + start_pos2
@@ -68,3 +73,12 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         if ((start_pos1 < start_pos2) and (pos2 < pos1)) or ((start_pos2 < start_pos1) and (pos1 < pos2)):
             if abs(pos1 - pos2) > sleep1 * (jump_distance1 or sleep2 * jump_distance2):
                 return -1
+
+print(meet_me(1, 2, 1, 2, 1, 1)) #=> 3
+print(meet_me(1, 2, 3, 4, 5, 5)) #=> -1
+print(meet_me(10, 7, 7, 5, 8, 6)) #=> 45
+print(meet_me(100, 7, 4, 300, 8, 6)) #=> 940
+print(meet_me(1, 7, 1, 15, 5, 1)) #=> 50
+print(meet_me(0, 1, 1, 1, 1, 1)) # => -1
+
+

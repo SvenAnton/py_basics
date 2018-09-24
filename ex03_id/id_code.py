@@ -50,6 +50,7 @@ def check_year_number_two_digits(year_number: int):
 def check_month_number(month_number: int):
     """"Funktsioon kontrollib, kas kuu nr on arv 1-12.
 
+    Kuu number peab olema väiksem kui 13 ja ei tohi olla 0.
     """
     if month_number < 13 and month_number != 0:
         return True
@@ -128,7 +129,6 @@ def check_control_number(id_code: str):
     Esimesed kordajad on 1, 2, 3, 4, 5, 6, 7, 8, 9, 1
     Teised kordajad on 3, 4, 5, 6, 7, 8, 9, 1, 2, 3
     """
-
     kontrollnumber1 = 0
 
     for i in range(10):

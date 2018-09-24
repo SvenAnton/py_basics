@@ -25,8 +25,7 @@ def check_your_id(id_code: str):
 
 
 def check_gender_number(gender_number: int):
-    """"
-    Funktsioon kontrollib, kas number on võimalik sootunnus isikukoodil.
+    """"Funktsioon kontrollib, kas number on võimalik sootunnus isikukoodil.
 
     Kontrollin ega antud number ei ole null või suurem kui 7, sest 1-6 on
     aktsepteeritav.
@@ -38,8 +37,7 @@ def check_gender_number(gender_number: int):
 
 
 def check_year_number_two_digits(year_number: int):
-    """"
-    Funktsioon kontrollib, kas aastaarv on number 1-99.
+    """"Funktsioon kontrollib, kas aastaarv on number 1-99.
 
     Kontrollin ega antud number ei ole suurem, kui 100 (üle kahe koha) või null.
     """
@@ -50,8 +48,7 @@ def check_year_number_two_digits(year_number: int):
 
 
 def check_month_number(month_number: int):
-    """"
-    Funktsioon kontrollib, kas kuu nr on arv 1-12.
+    """"Funktsioon kontrollib, kas kuu nr on arv 1-12.
 
     """
     if month_number < 13 and month_number != 0:
@@ -61,8 +58,7 @@ def check_month_number(month_number: int):
 
 
 def check_day_number(year_number: int, month_number: int, day_number: int):
-    """"
-    Funktsioon kontrollib, kas kuupäeva number on tegelikult olemasolev kuupäeva number.
+    """"Funktsioon kontrollib, kas kuupäeva number on tegelikult olemasolev kuupäeva number.
 
     Selleks on kasutatud kontrolli kuu numbri ja veebruarikuu puhul liigaasta järgi.
     """
@@ -94,8 +90,7 @@ def check_day_number(year_number: int, month_number: int, day_number: int):
 
 
 def check_leap_year(year_number: int):
-    """"
-    Funktsioon kontrollib, kas tegemist on liig-aastaga.
+    """"Funktsioon kontrollib, kas tegemist on liig-aastaga.
 
     Koostan if funktsioonide pesa vastavalt ülesandes antud arvutusele.
     """
@@ -112,8 +107,7 @@ def check_leap_year(year_number: int):
 
 
 def check_born_order(born_order: int):
-    """"
-    Funktsioon kontrollin, kas sünnijärjekord on arv 1-999.
+    """"Funktsioon kontrollin, kas sünnijärjekord on arv 1-999.
 
     Born order ei saa olla suurem, kui 1000 või võrdne nulliga.
     """
@@ -124,8 +118,7 @@ def check_born_order(born_order: int):
 
 
 def check_control_number(id_code: str):
-    """"
-    Funktsioon arvutab kontrollnumbri ja kontrollib, kas see on õige antud isikukoodi arvestades.
+    """"Funktsioon arvutab kontrollnumbri ja kontrollib, kas see on õige antud isikukoodi arvestades.
 
     Kontrollnumber1 arvutab kontrollnumbri esimese arvutuse järgi.
     Kui jääk on 10, siis arvutatakse kontrollnumber 2. Kontrollnumber
@@ -170,8 +163,7 @@ def check_control_number(id_code: str):
 
 
 def get_data_from_id(id_code: str):
-    """"
-    Funktsioon tagastab info isikukoodi põhjal.
+    """"Funktsioon tagastab info isikukoodi põhjal.
 
     Tagastab laused vajaliku infoga.
     """
@@ -182,8 +174,7 @@ def get_data_from_id(id_code: str):
 
 
 def get_gender(gender_number: int):
-    """"
-    Funktsioon tagastab sisestatud numbri järgi soo.
+    """"Funktsioon tagastab sisestatud numbri järgi soo.
 
     Kontrollib isikukoodi esimese numbri põhjal, kas tegu on mehe või naisega.
     """
@@ -194,8 +185,7 @@ def get_gender(gender_number: int):
 
 
 def get_full_year(gender_number: int, year: int):
-    """"
-    Funktsioon teeb isikukoodis antud aastaarvu numbrist tegeliku aasta.
+    """"Funktsioon teeb isikukoodis antud aastaarvu numbrist tegeliku aasta.
 
     Võtab isikukoodi esimese numbri järgi sajandi ja seejärel liidab
     otsa õige aastaarvu numbri isikukoodi 2-3 arvu järgi.

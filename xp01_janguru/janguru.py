@@ -2,22 +2,34 @@
 
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
+    """"See on ülesande põhifuntksioon.
 
+    Kasutan muutujaid lineaarse kiiruse arvtamiseks: speed1 ja speed2.
+    Samuti olen eraldi arvutanud stardipositsioonid välja: start_pos1 ja start_pos2.
+    Muutuja: probable_meeting_place_minus on lineaarse kiiruse põhjal arvestatud võimalik kohtumispaik,
+    millest olen lahutanud sleep'i ja võimaliku kohtumispaiga suhte järgi kas lihtsalt arvu 1 või
+    avaldise sleep*distance - seda selleks, et lineaarne kohtumispaik võib olla sõltuvalt sleepi
+    või distance'i tõttu oluliselt rohkem ees tegelikust kohtumispaigast. Korrutis võimaldab võtta
+    tagasi mõlemat muutujat arvestades, kuid kaotab oluliselt koodi kiirust.
+    Muutujad to_sleep on arvutus sellest, palju on jänestel jäänud magada kohas probable_meeting_place_minus.
+    Esimene if-klauslite rida välistab võimatud olukorrad ja välistab -1. Eelkontroll ei saada lootusetuid
+    juhtumeid loop'i.
+    Loop'is kontrollitakse iga korduse järel, kas positsioonid kattuvad. Kui ei, siis korratakse jäneste
+    liikumist arvestades nende magada jäänud päevi ja hüppe pikkust. Kui jänesel on veel magada vaja, siis
+    hüpet ei toimu. Loop'i sees on kontroll ka selle kohta, et ega kiirem jänes, kes alguses oli küll maas teisest,
+    ei ole vahepeal mööda läinud. Kui on, siis muutub kohtumine võimatuks ja väljastatakse -1.
+    """
     speed1 = jump_distance1 / sleep1   # kiirus on liikumine ajahetke t kohta.
     speed2 = jump_distance2 / sleep2
-
     start_pos1 = pos1 + jump_distance1
     start_pos2 = pos2 + jump_distance2
-
 
     if start_pos1 == start_pos2:
         return start_pos1
     elif (start_pos1 < start_pos2 and jump_distance1 == 0) or (start_pos2 < start_pos1 and jump_distance2 == 0):
         return -1
     elif (start_pos1 < start_pos2 and speed1 <= speed2) or (start_pos2 < start_pos1 and speed2 <= speed1):
-        print("lootusetu üritus")
         return -1
-
 
     probable_meeting_place_minus = round(abs(start_pos1 - start_pos2) / abs(speed1 - speed2))
 
@@ -34,16 +46,9 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     to_sleep1 = sleep1 - (probable_meeting_place_minus % sleep1)
     to_sleep2 = sleep2 - (probable_meeting_place_minus % sleep2)
 
-    #print("alustan arvutusi nendelt positsioonidelt: ", pos1, pos2)
-    #print(f"niipalju on magada algpositsioonilt: {to_sleep2}, {to_sleep1}")
-    #print("Võimalik kohtumiskoht miinus üks sleep: ", probable_meeting_place_minus)
-    #print(abs(speed1 - speed2), abs(start_pos1 - start_pos2))
-
-    while True:   # teen loop'i
-        #print(f"Esimene jänes: {pos1} [{to_sleep1}] Teine jänes:   {pos2} [{to_sleep2}] ")
-
-        if pos1 == pos2:   # kontrollin, kas positsioonid kattuvad,
-            return pos1    # tagastan positsiooni, kui
+    while True:
+        if pos1 == pos2:
+            return pos1
 
         if to_sleep1 == 0:
             pos1 += jump_distance1
@@ -57,6 +62,4 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
 
         if (((start_pos1 < start_pos2) and (pos2 < pos1)) or ((start_pos2 < start_pos1) and (pos1 < pos2))):
             if abs(pos1 - pos2) > sleep1 * (jump_distance1 or sleep2 * jump_distance2):
-                #print(start_pos1, start_pos2, pos1, pos2)
-                #print("Hüppas mööda")
                 return -1

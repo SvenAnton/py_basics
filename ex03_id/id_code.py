@@ -110,7 +110,7 @@ def check_leap_year(year_number: int):
 def check_born_order(born_order: int):
     """"Funktsioon kontrollin, kas sünnijärjekord on arv 1-999.
 
-    Born order ei saa olla suurem, kui 1000 või võrdne nulliga.
+    Born order ei saa olla suurem, kui 1000.
     """
     if born_order < 1000:
         return True

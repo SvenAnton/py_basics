@@ -168,7 +168,7 @@ def get_data_from_id(id_code: str):
     Tagastab laused vajaliku infoga.
     """
     if check_your_id(id_code):
-        return f"This is a {get_gender(int(id_code[0]))} born on {id_code[5:7]}.{id_code[3:5]}.{get_full_year(id_code[0], id_code[1:3])}"
+        return f"This is a {get_gender(int(id_code[0]))} born on {id_code[5:7]}.{id_code[3:5]}.{get_full_year(int(id_code[0]), int(id_code[1:3]))}"
     else:
         return "Given invalid ID code!"
 

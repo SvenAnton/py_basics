@@ -17,7 +17,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     Loop'is kontrollitakse iga korduse järel, kas positsioonid kattuvad. Kui ei, siis korratakse jäneste
     liikumist arvestades nende magada jäänud päevi ja hüppe pikkust. Kui jänesel on veel magada vaja, siis
     hüpet ei toimu. Loop'i sees on kontroll ka selle kohta, et ega kiirem jänes, kes alguses oli küll maas teisest,
-    ei ole vahepeal mööda läinud. Kui on, siis muutub kohtumine võimatuks ja väljastatakse -1.
+    ei ole vahepeal mööda läinud. Kui on, siis muutub kohtumine võimatuks ja  väljastatakse -1.
     """
     speed1 = jump_distance1 / sleep1   # kiirus on liikumine ajahetke t kohta.
     speed2 = jump_distance2 / sleep2

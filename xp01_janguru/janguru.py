@@ -2,7 +2,7 @@
 
 
 def hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2):
-    """"Välistab lootusetud juhtumid. Muutujad on selgitatud põhifuntsioonis."""
+    """"Välistab  lootusetud juhtumid. Muutujad on selgitatud põhifuntsioonis."""
     if (start_pos1 < start_pos2 and jump_distance1 == 0) or (start_pos2 < start_pos1 and jump_distance2 == 0):
         return True
     elif (start_pos1 < start_pos2 and speed1 <= speed2) or (start_pos2 < start_pos1 and speed2 <= speed1):

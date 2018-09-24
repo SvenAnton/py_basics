@@ -63,7 +63,7 @@ def check_day_number(year_number: int, month_number: int, day_number: int):
 
     Selleks on kasutatud kontrolli kuu numbri ja veebruarikuu puhul liigaasta järgi.
     """
-    if day_number == 0 or day_number >= 32:
+    if day_number <= 0 or day_number >= 32:
         return False
 
     if month_number in (1, 3, 5, 7, 8, 10, 12):

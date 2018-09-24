@@ -36,15 +36,15 @@ def check_gender_number(gender_number: int):
         return True
 
 
-def check_year_number_two_digits(year_number: str):
+def check_year_number_two_digits(year_number: int):
     """"
     Funktsioon kontrollib, kas aastaarv on number 1-99.
 
     """
-    if year_number == "00":
+    if year_number == 0:
         return False
 
-    if len(year_number) == 2:
+    if year_number > 100:
         return True
     else:
         return False

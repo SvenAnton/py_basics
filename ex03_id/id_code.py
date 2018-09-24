@@ -8,10 +8,7 @@ def check_your_id(id_code: str):
     Funktsioon kontrollib teiste abifunktsioonide abil, kas isikukood on valiidne.
 
     """
-    if (re.search(r"[a-zA-Z]", id_code) != None):
-        return False
-
-    if (len(id_code) != 11):
+    if (re.search(r"[a-zA-Z]", id_code) != None) or (len(id_code) != 11):
         return False
 
     if (check_gender_number(int(id_code[0])) and
@@ -30,10 +27,10 @@ def check_gender_number(gender_number: int):
     Funktsioon kontrollib, kas number on võimalik sootunnus isikukoodil.
 
     """
-    if gender_number == 0 or gender_number > 6:
-        return False
-    else:
+    if gender_number != 0 and gender_number < 7:
         return True
+    else:
+        return False
 
 
 def check_year_number_two_digits(year_number: int):
@@ -41,10 +38,7 @@ def check_year_number_two_digits(year_number: int):
     Funktsioon kontrollib, kas aastaarv on number 1-99.
 
     """
-    if year_number == 0:
-        return False
-
-    if year_number > 100:
+    if (year_number < 100) and (year_number != 0):
         return True
     else:
         return False
@@ -55,10 +49,10 @@ def check_month_number(month_number: int):
     Funktsioon kontrollib, kas kuu nr on arv 1-12.
 
     """
-    if month_number > 12 or month_number == 0:
-        return False
-    else:
+    if month_number < 13 and month_number != 0:
         return True
+    else:
+        return False
 
 
 def check_day_number(year_number: int, month_number: int, day_number: int):
@@ -67,7 +61,7 @@ def check_day_number(year_number: int, month_number: int, day_number: int):
 
     Selleks on kasutatud kontrolli kuu numbri ja veebruarikuu puhul liigaasta järgi.
     """
-    if day_number == 0 or day_number > 31:
+    if day_number == 0 or day_number >= 32:
         return False
 
     if month_number in (1, 3, 5, 7, 8, 10, 12):
@@ -198,41 +192,3 @@ def get_full_year(gender_number: int, year: int):
     if gender_number in (5,6):
         year = 2000 + year
     return year
-
-if __name__ == '__main__':
-    print("Overall ID check::")
-    print(check_your_id("49808270244"))  # -> True
-    personal_id = input()  # type your own id in command prompt
-    print(check_your_id(personal_id))  # -> True
-    print(check_your_id("12345678901"))  # -> False
-    print("\nGender number:")
-    for i in range(9):
-        print(f"{i} {check_gender_number(i)}")
-        # 0 -> False
-        # 1...6 -> True
-        # 7...8 -> False
-    print("\nYear number:")
-    print(check_year_number_two_digits(100))  # -> False
-    print(check_year_number_two_digits(50))  # -> true
-    print("\nMonth number:")
-    print(check_month_number(2))  # -> True
-    print(check_month_number(15)) # -> False
-    print("\nDay number:")
-    print(check_day_number(5, 12, 25))  # -> True
-    print(check_day_number(10, 8, 32))  # -> False
-    print(check_leap_year(1804))  # -> True
-    print(check_leap_year(1800))  # -> False
-    print("\nFebruary check:")
-    print(check_day_number(96, 2, 30))  # -> False (February cannot contain more than 29 days in any circumstances)
-    print(check_day_number(99, 2, 29))  # -> False (February contains 29 days only during leap year)
-    print(check_day_number(8, 2, 29))  # -> True
-    print("\nMonth contains 30 or 31 days check:")
-    print(check_day_number(22, 4, 31))  # -> False (April contains max 30 days)
-    print(check_day_number(18, 10, 31))  # -> True
-    print(check_day_number(15, 9, 31))  # -> False (September contains max 30 days)
-    print("\nBorn order number:")
-    print(check_born_order(0))  # -> True
-    print(check_born_order(850))  # -> True
-    print("\nControl number:")
-    print(check_control_number("49808270244"))  # -> True
-    print(check_control_number("60109200187"))  # -> False, it must be 6

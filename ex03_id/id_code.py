@@ -1,5 +1,8 @@
 """Check if given ID code is valid."""
 
+
+import re
+
 def check_your_id(id_code: str):
     """"
     Funktsioon kontrollib teiste abifunktsioonide abil, kas isikukood on valiidne.
@@ -11,7 +14,8 @@ def check_your_id(id_code: str):
         check_day_number(int(id_code[1:3:]), int(id_code[3:5]), int(id_code[5:7])) and
         check_born_order(int(id_code[7:10])) and
         check_control_number(id_code) and
-        len(id_code) < 12):
+        len(id_code) == 11 and
+        re.search(r"[a-zA-Z]", id_code)) == None:
             return True
     else:
         return False

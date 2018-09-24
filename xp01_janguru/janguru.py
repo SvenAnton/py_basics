@@ -23,7 +23,6 @@ def new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, j
         return probable_meeting_place_minus - 1
 
 
-
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
     """"See on ülesande põhifuntksioon.
 

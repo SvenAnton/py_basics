@@ -8,9 +8,7 @@ def check_your_id(id_code: str):
     Funktsioon kontrollib teiste abifunktsioonide abil, kas isikukood on valiidne.
 
     """
-    if re.search(r"[a-zA-Z]", id_code) == None:
-        return True
-    else:
+    if (re.search(r"[a-zA-Z]", id_code) != None) and (len(id_code) != 11):
         return False
 
     if (check_gender_number(int(id_code[0])) and
@@ -18,8 +16,7 @@ def check_your_id(id_code: str):
         check_month_number(int(id_code[3:5])) and
         check_day_number(int(id_code[1:3:]), int(id_code[3:5]), int(id_code[5:7])) and
         check_born_order(int(id_code[7:10])) and
-        check_control_number(id_code) and
-        len(id_code) == 11):
+        check_control_number(id_code)):
             return True
     else:
         return False

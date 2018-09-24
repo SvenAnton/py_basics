@@ -112,7 +112,7 @@ def check_born_order(born_order: int):
 
     Born order ei saa olla suurem, kui 1000 või võrdne nulliga.
     """
-    if born_order < 1000 or born_order == 0:
+    if born_order < 1000:
         return True
     else:
         return False

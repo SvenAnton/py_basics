@@ -5,7 +5,7 @@ import time
 
 
 def ask_name():
-    """"Funktsioon, mis küsib nime"""
+    """"Funktsioon, mis küsib nime."""
     while True:
         name = input("What is your full name, dear fellow?").strip()
         is_title = name.istitle()
@@ -18,7 +18,7 @@ def ask_name():
 
 
 def progress_bar(process_name, seconds):
-    """""Funktsioon, mis teeb progress bar'i"""
+    """""Funktsioon, mis teeb progress bar'i."""
     cycle_time = seconds / 20
 
     chr_limit = 25
@@ -27,7 +27,6 @@ def progress_bar(process_name, seconds):
     if is_long:
         process_name = f"{process_name[:chr_limit - 5]}..."
 
-
     for i in range(21):
             print(f"\r[{'|' * i:-<20}] | Process: {process_name!r:.{chr_limit}} {0.05 * i:4.0%}", end='')
             time.sleep(cycle_time)
@@ -35,17 +34,16 @@ def progress_bar(process_name, seconds):
 
 
 def print_ok():
-    """"Funktsioon, mis ütleb, kui nimi sisestatud"""
+    """"Funktsioon, mis ütleb, kui nimi sisestatud."""
     print("Nominee listed.")
 
 
 def main():
-    """"Funktsioon, mis käivitab kõik teised funktsioonid soovitud järjekorras"""
-    name = ask_name()
+    """"Funktsioon, mis käivitab kõik teised funktsioonid soovitud järjekorras."""
+    ask_name()
     progress_bar("Setting up the nominee", 5)
     print_ok()
 
 
 if __name__ == "__main__":
     main()
-

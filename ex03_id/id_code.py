@@ -41,7 +41,7 @@ def check_year_number_two_digits(year_number: int):
 
     Kontrollin ega antud number ei ole suurem, kui 100 (üle kahe koha) või null.
     """
-    if (year_number < 100) and (year_number != 0):
+    if (0 <= year_number < 100):
         return True
     else:
         return False
@@ -50,9 +50,9 @@ def check_year_number_two_digits(year_number: int):
 def check_month_number(month_number: int):
     """"Funktsioon kontrollib, kas kuu nr on arv 1-12.
 
-    Kuu number peab olema väiksem kui 13 ja ei tohi olla 0.
+    Kuu number peab olema väiksem kui 13.
     """
-    if month_number < 13 and month_number != 0:
+    if month_number < 13:
         return True
     else:
         return False
@@ -71,14 +71,12 @@ def check_day_number(year_number: int, month_number: int, day_number: int):
             return True
         else:
             return False
-
-    if month_number in (4, 6, 9, 11):
+    elif month_number in (4, 6, 9, 11):
         if day_number <= 30:
             return True
         else:
             return False
-
-    if month_number == 2:
+    elif month_number == 2:
         if check_leap_year(year_number):
             if day_number <= 29:
                 return True
@@ -88,6 +86,8 @@ def check_day_number(year_number: int, month_number: int, day_number: int):
             return True
         else:
             return False
+    else:
+        return False
 
 
 def check_leap_year(year_number: int):
@@ -112,7 +112,7 @@ def check_born_order(born_order: int):
 
     Born order ei saa olla suurem, kui 1000.
     """
-    if born_order < 1000:
+    if (0 <= born_order < 1000):
         return True
     else:
         return False

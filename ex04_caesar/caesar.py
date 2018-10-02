@@ -22,17 +22,15 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     """
     renumber(shift, alphabet)
     message_list = list(message)
-    i = 0
 
-    for char in message_list:
-        if char.upper() in alphabet.upper():
-            if char.isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(char) + shift, alphabet)].upper()
+    for i in range(len(message_list)):
+        if str(message_list[i]).upper() in alphabet.upper():
+            if str(message_list[i]).isupper():
+                message_list[i] = alphabet[renumber(alphabet.upper().find(message) + shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(char) + shift, alphabet)]
+                message_list[i] = alphabet[renumber(alphabet.find(message) + shift, alphabet)]
         else:
             message_list[i]
-        i += 1
     return "".join(message_list)
 
 
@@ -47,15 +45,19 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     """
     renumber(shift, alphabet)
     message_list = list(message)
-    i = 0
 
-    for char in message_list:
-        if char.upper() in alphabet.upper():
-            if char.isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(char) + shift, alphabet)].upper()
+    for i in range(len(message_list)):
+        if str(message_list[i]).upper() in alphabet.upper():
+            if str(message_list[i]).isupper():
+                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(char) + shift, alphabet)]
+                message_list[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
         else:
             message_list[i]
-        i += 1
     return "".join(message_list)
+
+
+if __name__ == "__main__":
+    # simple tests
+    print(encode("he!!o", 88, "el"))  # ifmmp
+    print(decode("ifMmP", -51))  # hello

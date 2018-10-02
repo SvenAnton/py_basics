@@ -21,18 +21,17 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     :return: Encoded string.
     """
     renumber(shift, alphabet)
+    message_list = list(message)
 
     for i in range(len(message)):
         if message[i].upper() in alphabet.upper():
             if message[i].isupper():
-                message = message.replace(message[i], alphabet[
-                    renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper(), 1)
+                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
             else:
-                message = message.replace(message[i], alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)],
-                                          1)
+                message_list[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
         else:
-            message
-    return message
+            message_list[i]
+    return "".join(message_list)
 
 
 def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
@@ -45,15 +44,14 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     :return: Decoded string.
     """
     renumber(shift, alphabet)
+    message_list = list(message)
 
     for i in range(len(message)):
         if message[i].upper() in alphabet.upper():
             if message[i].isupper():
-                message = message.replace(message[i], alphabet[
-                    renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper(), 1)
+                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
-                message = message.replace(message[i], alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)],
-                                          1)
+                message_list[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
         else:
-            message
-    return message
+            message_list[i]
+    return "".join(message_list)

@@ -23,9 +23,9 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     renumber(shift, alphabet)
     message_list = list(message)
 
-    for i in range(len(message)):
-        if message[i].upper() in alphabet.upper():
-            if message[i].isupper():
+    for i in range(len(message_list)):
+        if str(message_list[i]).upper() in alphabet.upper():
+            if str(message_list[i]).isupper():
                 message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
             else:
                 message_list[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
@@ -46,12 +46,19 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     renumber(shift, alphabet)
     message_list = list(message)
 
-    for i in range(len(message)):
-        if message[i].upper() in alphabet.upper():
-            if message[i].isupper():
+    for i in range(len(message_list)):
+        if str(message_list[i]).upper() in alphabet.upper():
+            if str(message_list[i]).isupper():
                 message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
                 message_list[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
         else:
             message_list[i]
     return "".join(message_list)
+
+
+
+if __name__ == "__main__":
+    # simple tests
+    print(encode("he!!o", 23, "el"))  # ifmmp
+    print(decode("ifmmp", -25))  # hello

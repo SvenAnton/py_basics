@@ -1,14 +1,14 @@
 """Encode and decode Caesar cipher."""
 
 
-def renumber(length: int, alphabet: str):
+def renumber(index: int, alphabet: str):
     """"Aitab taandada olukordi juhul, kui shift v6i shiftitav number on suuremad t2hestikust v6i alla nulli."""
-    if length < 0:
-        return len(alphabet) - abs(length) % len(alphabet)
-    elif length > (len(alphabet) - 1):
-        return length % len(alphabet)
+    if (index - 1) < 0:
+        return len(alphabet) - abs(index) % len(alphabet)
+    elif (index - 1) > (len(alphabet)):
+        return index % len(alphabet)
     else:
-        return length
+        return index
 
 
 def check_if_coded(shift: int, alphabet: str):
@@ -28,7 +28,7 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     if check_if_coded(shift, alphabet):
         return message
 
-    renumber(shift, alphabet)
+    shift = shift % len(alphabet)
     message_list = list(message)
 
     for i in range(len(message_list)):

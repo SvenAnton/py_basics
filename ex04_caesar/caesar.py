@@ -10,6 +10,7 @@ def renumber(length: int, alphabet: str):
     else:
         return length
 
+
 def check_if_coded(shift: int, alphabet: str):
     if alphabet == "" or shift == 0:
         return True
@@ -33,9 +34,9 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     for i in range(len(message_list)):
         if str(message_list[i]).upper() in alphabet.upper():
             if str(message_list[i]).isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i-1]) + shift, alphabet)].upper()
+                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(message[i-1]) + shift, alphabet)]
+                message_list[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
         else:
             message_list[i]
     return "".join(message_list)
@@ -69,5 +70,5 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
 
 if __name__ == "__main__":
     # simple tests
-    print(encode("s", 10000, ""))  # ifmmp
+    print(encode("hello", 1))  # ifmmp
     print(decode("ifmmp", -121))  # hello

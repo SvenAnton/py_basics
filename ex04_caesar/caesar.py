@@ -51,7 +51,7 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     :param alphabet: Determines the symbols in use. Defaults to the standard latin alphabet.
     :return: Decoded string.
     """
-    if check_if_coded(alphabet, shift):
+    if check_if_coded(shift, alphabet):
         return message
 
     renumber(shift, alphabet)
@@ -70,5 +70,5 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
 
 if __name__ == "__main__":
     # simple tests
-    print(encode("hello", 1))  # ifmmp
-    print(decode("ifmmp", -121))  # hello
+    print(encode("hello", 0, ""))  # ifmmp
+    print(decode("ifmmp", -121, ""))  # hello

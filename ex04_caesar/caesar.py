@@ -24,13 +24,13 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     message_list = list(message)
 
     for i in range(len(message_list)):
-        if str(message_list[i]).upper() in alphabet.upper():
-            if str(message_list[i]).isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
+        if str(message_list[i-1]).upper() in alphabet.upper():
+            if str(message_list[i-1]).isupper():
+                message_list[i-1] = alphabet[renumber(alphabet.upper().find(message[i-1]) + shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
+                message_list[i-1] = alphabet[renumber(alphabet.find(message[i-1]) + shift, alphabet)]
         else:
-            message_list[i]
+            message_list[i-1]
     return "".join(message_list)
 
 
@@ -47,18 +47,11 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     message_list = list(message)
 
     for i in range(len(message_list)):
-        if str(message_list[i]).upper() in alphabet.upper():
-            if str(message_list[i]).isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
+        if str(message_list[i-1]).upper() in alphabet.upper():
+            if str(message_list[i-1]).isupper():
+                message_list[i-1] = alphabet[renumber(alphabet.upper().find(message[i-1]) - shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
+                message_list[i-1] = alphabet[renumber(alphabet.find(message[i-1]) - shift, alphabet)]
         else:
-            message_list[i]
+            message_list[i-1]
     return "".join(message_list)
-
-
-
-if __name__ == "__main__":
-    # simple tests
-    print(encode("he!!o", 23, "el"))  # ifmmp
-    print(decode("ifmmp", -25))  # hello

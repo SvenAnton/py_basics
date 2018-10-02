@@ -5,7 +5,7 @@ def renumber(length: int, alphabet: str):
     """"Aitab taandada olukordi juhul, kui shift v6i shiftitav number on suuremad t2hestikust v6i alla nulli."""
     if length < 0:
         return len(alphabet) - abs(length) % len(alphabet)
-    elif length > len(alphabet):
+    elif length > (len(alphabet) - 1):
         return length % len(alphabet)
     else:
         return length
@@ -70,5 +70,5 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
 
 if __name__ == "__main__":
     # simple tests
-    print(encode("hello", 0, ""))  # ifmmp
-    print(decode("ifmmp", -121, ""))  # hello
+    print(encode("hello", -27))  # ifmmp
+    print(decode("hello", 27))  # hello

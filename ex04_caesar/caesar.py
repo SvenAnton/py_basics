@@ -55,10 +55,3 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
         else:
             message_list[i]
     return "".join(message_list)
-
-
-
-if __name__ == "__main__":
-    # simple tests
-    print(encode("he!!o", 88, "el"))  # ifmmp
-    print(decode("ifMmP", -51))  # hello

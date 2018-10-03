@@ -6,7 +6,7 @@ def renumber(index: int, alphabet: str):
     max_index = len(alphabet) - 1
 
     if index < 0:
-        return len(alphabet) - abs(index) % len(alphabet)
+        return (len(alphabet) - 1) - abs(index) % len(alphabet)
     elif index > max_index:
         return index % len(alphabet)
     else:
@@ -14,6 +14,7 @@ def renumber(index: int, alphabet: str):
 
 
 def check_if_coded(shift: int, alphabet: str):
+    """"Kontrollin, kas tekst on yldse kodeeritud. Kui alphabet v6i shif on 0, siis v2ljastab sama teksti."""
     if alphabet == "" or shift == 0:
         return True
 
@@ -64,13 +65,8 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
             if str(message[i]).isupper():
                 message[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
+                print(f"{message[i]} t2hestikus {alphabet.find(message[i])}. kohal. Miinus shift 30 ja saame {alphabet.find(message[i]) - shift} tekib {renumber(alphabet.find(message[i]) - shift, alphabet)}")
                 message[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
         else:
             message[i]
     return "".join(message)
-
-
-if __name__ == "__main__":
-    # simple tests
-    print(encode("hello", 1))  # ifmmp
-    print(decode("hello", -1))  # hello

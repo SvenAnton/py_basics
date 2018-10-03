@@ -2,14 +2,12 @@
 
 
 def renumber(index: int, alphabet: str):
-    """"
-    Aitab taandada olukordi juhul, kui shift v6i shiftitav number on suuremad t2hestikust v6i alla nulli.
+    """"Aitab taandada olukordi.
 
+    juhul, kui shift v6i shiftitav number on suuremad t2hestikust v6i alla nulli.
     Max_index on maksimaalse indeksi suurus. Enam pole teda ilmtingimata koodis vaja,
     kuid j2tsin ta ikkagi sisse, sest kasutasin teda erinevate koodiversioonide testimisel
-    ja lugeda on ka lihtsam.
-
-    """
+    ja lugeda on ka lihtsam."""
     max_index = len(alphabet)
 
     if index < 0:
@@ -24,13 +22,10 @@ def renumber(index: int, alphabet: str):
 
 
 def check_if_coded(shift: int, alphabet: str):
-    """"
-    Kontrollin, kas tekst on yldse kodeeritud.
+    """"Kontrollin, kas tekst on yldse kodeeritud.
 
     :Kui alphabet v6i shif on 0, siis v2ljastab sama teksti, sest sellistel
-    juhtudel on tekst kodeerimata.
-
-    """
+    juhtudel on tekst kodeerimata."""
     if alphabet == "" or shift == 0:
         return True
 

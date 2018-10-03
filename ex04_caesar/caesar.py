@@ -6,7 +6,7 @@ def renumber(index: int, alphabet: str):
     max_index = len(alphabet) - 1
 
     if index < 0:
-        return (len(alphabet) - 1) - abs(index) % len(alphabet)
+        return len(alphabet) - abs(index) % (len(alphabet) - 1)
     elif index > max_index:
         return index % len(alphabet)
     else:

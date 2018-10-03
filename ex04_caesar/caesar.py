@@ -6,7 +6,10 @@ def renumber(index: int, alphabet: str):
     max_index = len(alphabet)
 
     if index < 0:
-        return max_index - abs(index) % max_index
+        if abs(index) % max_index == 0:
+            return 0
+        else:
+            return max_index - abs(index) % max_index
     elif index >= max_index:
         return index % max_index
     else:
@@ -66,9 +69,9 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
     for i in range(len(message)):
         if str(message[i]).upper() in alphabet.upper():
             if str(message[i]).isupper():
-                #print(
-                 # f"{message[i]} t2hestikus {alphabet.upper().find(message[i])}. kohal. Miinus shift {shift} v6rdub "
-                  #f"{alphabet.upper().find(message[i]) - shift} ja renumereerimisel {renumber(alphabet.upper().find(message[i]) - shift, alphabet)}")
+                print(
+                  f"{message[i]} t2hestikus {alphabet.upper().find(message[i])}. kohal. Miinus shift {shift} v6rdub "
+                  f"{alphabet.upper().find(message[i]) - shift} ja renumereerimisel {renumber(alphabet.upper().find(message[i]) - shift, alphabet)}")
                 message[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
                 message[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]

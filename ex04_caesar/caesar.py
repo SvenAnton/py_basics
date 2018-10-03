@@ -3,9 +3,11 @@
 
 def renumber(index: int, alphabet: str):
     """"Aitab taandada olukordi juhul, kui shift v6i shiftitav number on suuremad t2hestikust v6i alla nulli."""
-    if (index - 1) < 0:
+    max_index = len(alphabet) - 1
+
+    if index < 0:
         return len(alphabet) - abs(index) % len(alphabet)
-    elif (index - 1) > (len(alphabet)):
+    elif index > max_index:
         return index % len(alphabet)
     else:
         return index
@@ -29,17 +31,17 @@ def encode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
         return message
 
     shift = shift % len(alphabet)
-    message_list = list(message)
+    message = list(message)
 
-    for i in range(len(message_list)):
-        if str(message_list[i]).upper() in alphabet.upper():
-            if str(message_list[i]).isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
+    for i in range(len(message)):
+        if str(message[i]).upper() in alphabet.upper():
+            if str(message[i]).isupper():
+                message[i] = alphabet[renumber(alphabet.upper().find(message[i]) + shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
+                message[i] = alphabet[renumber(alphabet.find(message[i]) + shift, alphabet)]
         else:
-            message_list[i]
-    return "".join(message_list)
+            message[i]
+    return "".join(message)
 
 
 def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
@@ -55,20 +57,20 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
         return message
 
     renumber(shift, alphabet)
-    message_list = list(message)
+    message = list(message)
 
-    for i in range(len(message_list)):
-        if str(message_list[i]).upper() in alphabet.upper():
-            if str(message_list[i]).isupper():
-                message_list[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
+    for i in range(len(message)):
+        if str(message[i]).upper() in alphabet.upper():
+            if str(message[i]).isupper():
+                message[i] = alphabet[renumber(alphabet.upper().find(message[i]) - shift, alphabet)].upper()
             else:
-                message_list[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
+                message[i] = alphabet[renumber(alphabet.find(message[i]) - shift, alphabet)]
         else:
-            message_list[i]
-    return "".join(message_list)
+            message[i]
+    return "".join(message)
 
 
 if __name__ == "__main__":
     # simple tests
     print(encode("hello", -27))  # ifmmp
-    print(decode("hello", 27))  # hello
+    print(decode("hello", -25))  # hello

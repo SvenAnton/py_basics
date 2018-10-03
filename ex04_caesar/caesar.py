@@ -72,5 +72,5 @@ def decode(message: str, shift: int, alphabet="abcdefghijklmnopqrstuvwxyz"):
 
 if __name__ == "__main__":
     # simple tests
-    print(encode("hello", -27))  # ifmmp
-    print(decode("hello", -25))  # hello
+    print(encode("hello", 1))  # ifmmp
+    print(decode("hello", -1))  # hello

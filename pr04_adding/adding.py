@@ -9,7 +9,7 @@ def get_max_element(int_list):
     :param int_list: List of integers
     :return: largest int
     """
-    return max(int_list, None)
+    return max(int_list, default=0)
 
 
 def get_min_element(int_list):
@@ -20,7 +20,7 @@ def get_min_element(int_list):
     :param int_list: List of integers
     :return: Smallest int
     """
-    return min(int_list, None)
+    return min(int_list, default=0)
 
 
 def sort_list(int_list):
@@ -55,3 +55,8 @@ def add_list_elements(int_list):
         int_list.remove(get_max_element(int_list))
         int_list.remove(get_min_element(int_list))
     return sort_list(new_list)
+
+if __name__ == '__main__':
+    print(add_list_elements([0, 0, 0, 0, 0, 0, 1, 2, 5, 6]))  # -> [6, 5, 2, 1, 0]
+    print(add_list_elements([-1, -2, -5, -50, -14]))  # -> [-16, -51]
+    print(add_list_elements([1]))  # -> []

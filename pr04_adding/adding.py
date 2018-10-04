@@ -9,7 +9,7 @@ def get_max_element(int_list):
     :param int_list: List of integers
     :return: largest int
     """
-    return max(int_list)
+    return max(int_list, None)
 
 
 def get_min_element(int_list):
@@ -20,7 +20,7 @@ def get_min_element(int_list):
     :param int_list: List of integers
     :return: Smallest int
     """
-    return min(int_list)
+    return min(int_list, None)
 
 
 def sort_list(int_list):

@@ -26,7 +26,6 @@ def retrun_max_or_min_from_dict(file, dictionary, max_or_min: str):
      anda stringina, sest ma ei osanud funktsiooni otse sisse kirjutada
      praegu. Väärtused on "max" või "min".
      """
-
     if max_or_min == "max":
         max_or_min_value = max(dictionary.values(), default=None)
     elif max_or_min == "min":
@@ -63,8 +62,6 @@ def create_popular_hobbies_dict(file):
 
 def create_hobbies_per_person_nr_dict(file):
     """"Loob sõnastiku, kus iga inimese kohta on välja toodud tema hobid. Väärtusena võetakse fail."""
-
-
     hobbies_per_person = {}
     for key, val in create_dictionary(file).items():
         val = len(val)

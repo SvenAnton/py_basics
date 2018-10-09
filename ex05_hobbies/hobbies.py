@@ -17,14 +17,14 @@ def create_list_from_file(file):
 
 
 def retrun_max_or_min_from_dict(file, dictionary, max_or_min: str):
-    """"
+    """
     Tagastab minimaalse või maksimaalse väärtuse sõnastikust.
 
     :param file on sisseloatav .txt file
     :param dictionary on sõnastik, millest väärtust otsitakse
     :param min_or_max on funktsioon, mida kasutatakse. Väärtus tuleb anda stringina, sest ma ei
     osanud funktsiooni otse sisse kirjutada praegu. Väärtused on "max" või "min".
-     """
+    """
     if max_or_min == "max":
         max_or_min_value = max(dictionary.values(), default=None)
     elif max_or_min == "min":

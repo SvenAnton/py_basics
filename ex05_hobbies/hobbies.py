@@ -17,6 +17,16 @@ def create_list_from_file(file):
 
 
 def retrun_max_or_min_from_dict(file, dictionary, max_or_min: str):
+    """"Tagastab minimaalse või maksimaalse väärtuse sõnastikust.
+
+    Funktsioon võtab kolm väärtust:
+     - file on sisseloatav .txt file
+     - dictionary on sõnastik, millest väärtust otsitakse
+     - min_or_max on funktsioon, mida kasutatakse. Väärtus tuleb
+     anda stringina, sest ma ei osanud funktsiooni otse sisse kirjutada
+     praegu. Väärtused on "max" või "min".
+     """
+
     if max_or_min == "max":
         max_or_min_value = max(dictionary.values(), default=None)
     elif max_or_min == "min":
@@ -32,6 +42,11 @@ def retrun_max_or_min_from_dict(file, dictionary, max_or_min: str):
 
 
 def create_popular_hobbies_dict(file):
+    """"Teeb populaarsetest hobidest sõnastiku.
+
+    Tagastatava sõnastiku võti on hobi nimi ja väärtus hobi esinemise arv.
+    Funktsioon võtab väärtusena sisseloetud faili.
+    """
     hobbies_list = []
     for item in create_dictionary(file).values():
         for i in item:
@@ -47,6 +62,9 @@ def create_popular_hobbies_dict(file):
 
 
 def create_hobbies_per_person_nr_dict(file):
+    """"Loob sõnastiku, kus iga inimese kohta on välja toodud tema hobid. Väärtusena võetakse fail."""
+
+
     hobbies_per_person = {}
     for key, val in create_dictionary(file).items():
         val = len(val)
@@ -55,6 +73,7 @@ def create_hobbies_per_person_nr_dict(file):
 
 
 def create_name_list(file):
+    """"Loob nimede listi, kus nimed ei kordu. Võtab sisse loetava faili."""
     name_set = set()
     for i in create_list_from_file(file):
         name = i.split(":")[0]

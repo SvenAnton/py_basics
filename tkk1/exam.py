@@ -40,7 +40,7 @@ def exchange_first_and_last(word):
     """
     Given a word as a string, return a string where first and last character are exchanged if last character is smaller then first one, otherwise return intital word.
 
-    Also, if the length of input word is smaller than one return empty string.
+    Also, if the length of input word is smaller than one return empty strings.
 
     exchange_first_and_last('kala') → 'aalk'
     exchange_first_and_last('kalalaev') → 'kalalaev'

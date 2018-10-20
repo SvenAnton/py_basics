@@ -1,7 +1,7 @@
 """Create schedule from the given file."""
 
-
 import re
+
 
 def create_schedule_file(input_filename: str, output_filename: str) -> None:
     """Create schedule file from the given input file."""
@@ -10,18 +10,13 @@ def create_schedule_file(input_filename: str, output_filename: str) -> None:
             output_file.write(create_schedule_string(input_file.read()))
 
 
-import re
-
 def create_schedule_string(input_string: str) -> str:
     """Create schedule string from the given input string."""
-
-
     # teen dictionary sisse antud tekstist.
     table = []
     schedule = {}
 
     for match in re.finditer(r"( +|\n)([0-1]\d|[2][0-3]|\d)(\D)([0-5]\d|\d)( +|\n +)([a-zA-Z]+)", input_string):
-
         if int(match.group(4)) < 10:
             minutes = f"0{int(match.group(4))}"
         else:
@@ -36,7 +31,6 @@ def create_schedule_string(input_string: str) -> str:
 
         schedule.setdefault(time, set())
         schedule[time].add(match.group(6).lower())
-
 
     if bool(schedule) is False:
         return(
@@ -58,7 +52,6 @@ def create_schedule_string(input_string: str) -> str:
         length_left.add(len(key.strip()))
     left_line = max(length_left)
 
-
     # teen tabeli p2ise
     items_string = "items"
     time_string = "time"
@@ -78,8 +71,3 @@ def create_schedule_string(input_string: str) -> str:
     # tabeli alumine serv
     table.append("-" * (right_line + left_line + 7))
     return "\n".join(table)
-"""
-if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst "))
-    create_schedule_file("schedule_input.txt", "schedule_output.txt")
-"""

@@ -68,8 +68,3 @@ def create_schedule_string(input_string: str) -> str:
     # tabeli alumine serv
     table.append("-" * (left_line + 15))
     return "\n".join(table)
-
-
-if __name__ == '__main__':
-    print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst "))
-    create_schedule_file("schedule_input.txt", "schedule_output.txt")

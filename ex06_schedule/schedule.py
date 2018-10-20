@@ -40,7 +40,7 @@ def create_schedule_string(input_string: str) -> str:
             "| No items found |\n"
             "------------------")
 
-    # teen parempoolse serva joondamise muutuja
+    # teen parempoolse serva joondamise  muutuja
     length_right = set()
     for key, value in schedule.items():
         length_right.add(len(' ,'.join(value)))

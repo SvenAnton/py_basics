@@ -1,5 +1,6 @@
 """TKK 1 (L12)."""
 
+
 def sum_odds_or_evens(a, b):
     """
     Given two numbers, return the sum of these numbers if they both are even or odd numbers, otherwise return None.
@@ -108,12 +109,3 @@ def repeated_word_numeration(words_list):
     :return: List of words where repeated words have numeration.
     """
     pass
-
-
-
-if __name__ == '__main__':
-    print(sum_odds_or_evens(0, 100))
-    print(first_and_last_item([5, 2, 7]))
-    print(exchange_first_and_last('vaal'))
-    print(remove_nth_symbol("sadam", 3))
-    print(repeated_word_numeration(["Uhti", "uhti", "uhkesti"]))

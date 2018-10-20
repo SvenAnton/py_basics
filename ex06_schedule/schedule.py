@@ -34,11 +34,11 @@ def create_schedule_string(input_string: str) -> str:
 
     if bool(schedule) is False:
         return(
-                """------------------
-|  time | items  |
-------------------
-| No items found |
-------------------""")
+            "------------------\n"
+            "|  time | items  |\n"
+            "------------------\n"
+            "| No items found |\n"
+            "------------------")
 
     # teen parempoolse serva joondamise muutuja
     length_right = set()

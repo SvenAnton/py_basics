@@ -11,7 +11,7 @@ def create_schedule_file(input_filename: str, output_filename: str) -> None:
 
 
 def create_schedule_string(input_string: str) -> str:
-    """Create schedule string from the given input string."""
+    """Create schedule string from the sgiven input string."""
 
 
     # teen dictionary sisse antud tekstist.

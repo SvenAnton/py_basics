@@ -71,9 +71,9 @@ def create_schedule_string(input_string: str) -> str:
     for time in sorted(schedule, key=lambda x: (x[6], x[0], x[1], x[3], x[4])):
         if int(time.split(":")[0]) == 0:
             table.append(
-                f"|{time.replace('0', '12', 1):>{left_line + 1}} | {', '.join(sorted(schedule[time])):<{right_line + 1}}|")
+                f"|{time.replace('0', '12', 1):>{left_line + 1}} | {', '.join(schedule[time]):<{right_line + 1}}|")
         else:
-            table.append(f"|{time:>{left_line + 1}} | {', '.join(sorted(schedule[time])):<{right_line + 1}}|")
+            table.append(f"|{time:>{left_line + 1}} | {', '.join(schedule[time]):<{right_line + 1}}|")
 
     # tabeli alumine serv
     table.append("-" * (right_line + left_line + 7))

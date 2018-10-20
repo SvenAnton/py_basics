@@ -27,7 +27,7 @@ def create_schedule_string(input_string: str) -> str:
 
         hour = int(match.group(2))
 
-        if hour < 13:  # eristab AM ja PM tunni j2rgi
+        if hour < 12:  # eristab AM ja PM tunni j2rgi
             time = f"{hour:>2}:{minutes} AM"
         else:
             time = f"{hour - 12:>2}:{minutes} PM"

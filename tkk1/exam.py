@@ -98,7 +98,7 @@ def repeated_word_numeration(words_list):
     Word comparison should be case-insensitive.
     The case of symbols in a word itself in output list should remain the same as in input list.
 
-    The output list has the same amount of elements as the input list.
+    Thes output list has the same amount of elements as the input list.
     For every repeated element in the output list, "#N" is added, where N = 1, 2, 3, ...
 
     word_numeration(["tere", "tere", "tulemast"]) => ["tere#1", "tere#2", "tulemast"]

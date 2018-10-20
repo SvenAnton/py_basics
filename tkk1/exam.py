@@ -51,13 +51,14 @@ def exchange_first_and_last(word):
     :param word: input string.
     :return: a string
     """
+    if word == "":
+        return word
+
     string_list = list(word)
     char1 = word[0]
     char2 = word[len(word) - 1]
 
-    if word == "":
-        return word
-    elif char2 < char1:
+    if char2 < char1:
         string_list[0] = char2
         string_list[len(word) - 1] = char1
         return ("".join(string_list))

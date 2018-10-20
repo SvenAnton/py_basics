@@ -10,6 +10,8 @@ def create_schedule_file(input_filename: str, output_filename: str) -> None:
             output_file.write(create_schedule_string(input_file.read()))
 
 
+import re
+
 def create_schedule_string(input_string: str) -> str:
     """Create schedule string from the given input string."""
 
@@ -35,6 +37,7 @@ def create_schedule_string(input_string: str) -> str:
         schedule.setdefault(time, set())
         schedule[time].add(match.group(6).lower())
 
+
     if bool(schedule) is False:
         return(
                 """------------------
@@ -43,28 +46,34 @@ def create_schedule_string(input_string: str) -> str:
 | No items found |
 ------------------""")
 
-    # teen vasakpoolse serva joondamise muutuja
-    set_length = set()
+    # teen parempoolse serva joondamise muutuja
+    length_right = set()
     for key, value in schedule.items():
-        set_length.add(len(' ,'.join(value)))
+        length_right.add(len(' ,'.join(value)))
+    right_line = max(length_right)
 
-    left_line = max(set_length)
+    # teen vasakpoolse serva joonduse
+    length_left = set()
+    for key, value in schedule.items():
+        length_left.add(len(key.strip()))
+    left_line = max(length_left)
+
 
     # teen tabeli p2ise
     items_string = "items"
-    table.append("-" * (left_line + 15))
-    table.append(f"|     time | {items_string:<{left_line}} |")
-    table.append("-" * (left_line + 15))
+    table.append("-" * (right_line + 15))
+    table.append(f"|     time | {items_string:<{right_line}} |")
+    table.append("-" * (right_line + 15))
 
     # teen dictionarist nõutud tabeli
     # sordib kõigepealt AM/PM järgi ja siis edasi vastava koha numbrite järgi.
     for time in sorted(schedule, key=lambda x: (x[6], x[0], x[1], x[3], x[4])):
         if int(time.split(":")[0]) == 0:
             table.append(
-                f"| {time.replace(' ', '', 1).replace('0', '12', 1)} | {', '.join(sorted(schedule[time])):<{left_line}} |")
+                f"|{time.replace('0', '12', 1):>{left_line + 1}} | {', '.join(sorted(schedule[time])):<{right_line + 1}}|")
         else:
-            table.append(f"| {time} | {', '.join(sorted(schedule[time])):<{left_line}} |")
+            table.append(f"|{time:>{left_line + 1}} | {', '.join(sorted(schedule[time])):<{right_line + 1}}|")
 
     # tabeli alumine serv
-    table.append("-" * (left_line + 15))
+    table.append("-" * (right_line + 15))
     return "\n".join(table)

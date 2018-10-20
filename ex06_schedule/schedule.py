@@ -62,9 +62,9 @@ def create_schedule_string(input_string: str) -> str:
     # teen tabeli p2ise
     items_string = "items"
     time_string = "time"
-    table.append("-" * (right_line + 15))
+    table.append("-" * (right_line + left_line + 7))
     table.append(f"|{time_string:>{left_line + 1}} | {items_string:<{right_line + 1}}|")
-    table.append("-" * (right_line + 15))
+    table.append("-" * (right_line + left_line + 7))
 
     # teen dictionarist nõutud tabeli
     # sordib kõigepealt AM/PM järgi ja siis edasi vastava koha numbrite järgi.
@@ -76,9 +76,10 @@ def create_schedule_string(input_string: str) -> str:
             table.append(f"|{time:>{left_line + 1}} | {', '.join(sorted(schedule[time])):<{right_line + 1}}|")
 
     # tabeli alumine serv
-    table.append("-" * (right_line + 15))
+    table.append("-" * (right_line + left_line + 7))
     return "\n".join(table)
-
+"""
 if __name__ == '__main__':
     print(create_schedule_string("wat 11:00 teine tekst 11:0 jah ei 10:00 pikktekst "))
     create_schedule_file("schedule_input.txt", "schedule_output.txt")
+"""

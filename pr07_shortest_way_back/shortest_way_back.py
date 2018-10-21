@@ -1,5 +1,6 @@
 """Find the shortest way back in a taxicab geometry."""
 
+
 def calculate_new_pos(path: str):
     """Arvutab uue positsiooni path juhistest l2htuvalt."""
     liikumine = {"N": (1, 0), "S": (-1, 0), "E": (0, 1), "W": (0, -1)}

@@ -20,7 +20,7 @@ def simulate(world_map: list, flight_plan: list) -> list:
 
     Pirates under Shippy's starting position are always eliminated ('-').
     If Shippy fights pirates in high presence area, it first turns into low presence ('w')
-     and then from low presence into no presence area ('-').
+     and then from low presence into no presence area. ('-').
     """
     start_pos_y = list_to_dictionary_converter(world_map)[1]
     start_pos_x = list_to_dictionary_converter(world_map)[2]

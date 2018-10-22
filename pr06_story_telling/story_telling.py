@@ -3,6 +3,7 @@
 
 import re
 
+
 def read_file(file) -> str:
     """
     Read the text from given file into string.
@@ -11,7 +12,7 @@ def read_file(file) -> str:
     :return: string
     """
     with open(file, "r") as file:
-        print(get_clean_text(file.read()))
+        return get_clean_text(file.read())
 
 
 def get_clean_text(messy_text: str) -> str:

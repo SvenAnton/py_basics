@@ -33,19 +33,18 @@ def get_clean_text(messy_text: str) -> str:
         try:
             if char == '.':
                 messy_text[index + 2] = messy_text[index + 2].upper()
+            if char == "*":
+                messy_text[index] = '"'
+                messy_text[index + 1] = messy_text[index + 1].upper()
+            if char == "!":
+                messy_text[index] = "?"
+                messy_text[index + 2] = messy_text[index + 2].upper()
+            if char == "?":
+                messy_text[index] = "!"
+                messy_text[index + 2] = messy_text[index + 2].upper()
+            if char == "/":
+                messy_text[index] = ","
         except IndexError:
             continue
-
-        if char == "*":
-            messy_text[index] = '"'
-            messy_text[index + 1] = messy_text[index + 1].upper()
-        if char == "!":
-            messy_text[index] = "?"
-            messy_text[index + 2] = messy_text[index + 2].upper()
-        if char == "?":
-            messy_text[index] = "!"
-            messy_text[index + 2] = messy_text[index + 2].upper()
-        if char == "/":
-            messy_text[index] = ","
 
     return "".join(messy_text)

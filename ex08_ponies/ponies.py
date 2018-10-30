@@ -68,14 +68,15 @@ def add_points(pony: dict) -> dict:
         'mane_color': ['Schoolhouse', 'Crusaders Clubhouse', 'Golden Oak Library'],
         'eye_color': ['Train station', 'Castle of Friendship', 'Retirement Village']
     }
-    if pony["location"] in evaluation_locations["coat_color"]:
-        pony["points"] = get_points_for_color(pony["coat_color"])
-    elif pony["location"] in evaluation_locations["mane_color"]:
-        pony["points"] = get_points_for_color(pony["mane_color"])
-    elif pony["location"] in evaluation_locations["eye_color"]:
-        pony["points"] = get_points_for_color(pony["eye_color"])
-    else:
-        pony["points"] = None
+    try:
+        if pony["location"] in evaluation_locations["coat_color"]:
+            pony["points"] = get_points_for_color(pony["coat_color"])
+        elif pony["location"] in evaluation_locations["mane_color"]:
+            pony["points"] = get_points_for_color(pony["mane_color"])
+        elif pony["location"] in evaluation_locations["eye_color"]:
+            pony["points"] = get_points_for_color(pony["eye_color"])
+    except:
+        return "No location in evaluation location."
 
 
 def evaluate_ponies(ponies: list) -> list:
@@ -135,7 +136,7 @@ def write(input_file: str, kind: str):
 
 
 if __name__ == '__main__':
-    write("ponies.txt", "Earth")
+    write("ponies1.txt", "Earth")
 
 
 

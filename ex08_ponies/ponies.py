@@ -32,7 +32,7 @@ def read(read_file: str) -> list:
                 else:
                     ponies_list.append(extract_information(decode(line)))
     except FileNotFoundError:
-        print("File not found!")
+        return FileNotFoundError
 
     return ponies_list
 
@@ -68,15 +68,16 @@ def add_points(pony: dict) -> dict:
         'mane_color': ['Schoolhouse', 'Crusaders Clubhouse', 'Golden Oak Library'],
         'eye_color': ['Train station', 'Castle of Friendship', 'Retirement Village']
     }
-    try:
-        if pony["location"] in evaluation_locations["coat_color"]:
-            pony["points"] = get_points_for_color(pony["coat_color"])
-        elif pony["location"] in evaluation_locations["mane_color"]:
-            pony["points"] = get_points_for_color(pony["mane_color"])
-        elif pony["location"] in evaluation_locations["eye_color"]:
-            pony["points"] = get_points_for_color(pony["eye_color"])
-    except:
-        return "No location in evaluation location."
+    if pony["location"] in evaluation_locations["coat_color"]:
+        pony["points"] = get_points_for_color(pony["coat_color"])
+    elif pony["location"] in evaluation_locations["mane_color"]:
+        pony["points"] = get_points_for_color(pony["mane_color"])
+    elif pony["location"] in evaluation_locations["eye_color"]:
+        pony["points"] = get_points_for_color(pony["eye_color"])
+    else:
+        return None
+
+    return pony
 
 
 def evaluate_ponies(ponies: list) -> list:
@@ -116,6 +117,10 @@ def write(input_file: str, kind: str):
     eye_color = "EYE COLOR"
     location = "LOCATION"
     line = "-"
+
+    if read(input_file) == FileNotFoundError:
+        return "File not found!"
+
     ponies_list = sort_by_points(
         sort_by_name(evaluate_ponies(filter_by_kind(filter_by_location(read(input_file)), kind))))
     ponies_string = ""
@@ -123,20 +128,17 @@ def write(input_file: str, kind: str):
         ponies_string += f"{format_line(pony, place + 1)}\n"
     ponies_string = ponies_string.strip()
 
-    try:
-        with open(input_file, "r"):
-            with open(f"results_for_{kind}.txt", "w") as output_file:
-                output_file.write(f"{place_table:<10}{points_table:<10}{name_table:<20}{kind_table:<20}{coat_color:<20}"
-                                  f"{mane_color:<20}{eye_color:<20}{location}\n")
-                output_file.write(f"{128 * line}\n")
-                output_file.write(ponies_string)
 
-    except FileNotFoundError:
-        return
+    with open(input_file, "r"):
+        with open(f"results_for_{kind}.txt", "w") as output_file:
+            output_file.write(f"{place_table:<10}{points_table:<10}{name_table:<20}{kind_table:<20}{coat_color:<20}"
+                              f"{mane_color:<20}{eye_color:<20}{location}\n")
+            output_file.write(f"{128 * line}\n")
+            output_file.write(ponies_string)
 
 
 if __name__ == '__main__':
-    write("ponies1.txt", "Earth")
+    write("ponies.txt", "Earth")
 
 
 

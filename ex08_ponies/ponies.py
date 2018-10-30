@@ -12,7 +12,7 @@ def decode(line: str) -> str:
 
 def extract_information(line: str) -> dict:
     """Takes decoded line and returns it as a dictionary with structured info."""
-    line = re.sub(" +", " ", line)
+    line = re.sub(" +", " ", line).strip("\n")
     pony_dict = {"name": " ".join(line.split(" ")[0:2]), "kind": str(line.split(" ")[2]),
                  "coat_color": str(line.split(" ")[3]), "mane_color": str(line.split(" ")[4]),
                  "eye_color": str(line.split(" ")[5]), "location": " ".join(line.split(" ")[6:])}

@@ -11,7 +11,7 @@ def decode(line: str) -> str:
 
 
 def extract_information(line: str) -> dict:
-    """Takes decoded line and returns it as a dictionary with structured info."""
+    """Take decoded line and returns it as a dictionary with structured info."""
     line = re.sub(" +", " ", line).strip("\n")
     pony_dict = {"name": " ".join(line.split(" ")[0:2]), "kind": str(line.split(" ")[2]),
                  "coat_color": str(line.split(" ")[3]), "mane_color": str(line.split(" ")[4]),
@@ -88,7 +88,7 @@ def add_points(pony: dict) -> dict:
 
 
 def evaluate_ponies(ponies: list) -> list:
-    """Adds evaluation points to list on pony dictionary."""
+    """Add evaluation points to list on pony dictionary."""
     for pony in ponies:
         add_points(pony)
     return ponies

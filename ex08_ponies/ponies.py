@@ -68,7 +68,7 @@ def add_points(pony: dict) -> dict:
         'mane_color': ['Schoolhouse', 'Crusaders Clubhouse', 'Golden Oak Library'],
         'eye_color': ['Train station', 'Castle of Friendship', 'Retirement Village']
     }
-    if not pony:
+    if not bool(pony):
         pony["points"] = None
     elif "location" not in pony.keys():
         pony["points"] = None

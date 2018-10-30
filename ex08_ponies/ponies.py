@@ -39,27 +39,12 @@ def read(read_file: str) -> list:
 
 def filter_by_location(ponies: list) -> list:
     """Filters out lines, where location is "None'."""
-
-    ponies_list = []
-    for dict_line in ponies:
-        if dict_line["location"] == "None":
-            continue
-        else:
-            ponies_list.append(dict_line)
-
-    return ponies_list
+    return [pony for pony in ponies if not (pony["location"] == "None")]
 
 
 def filter_by_kind(ponies: list, kind: str) -> list:
     """Filters ponies from list by given "kind" value as a string."""
-    ponies_list = []
-    for dict_line in ponies:
-        if dict_line["kind"] == kind:
-            ponies_list.append(dict_line)
-        else:
-            continue
-
-    return ponies_list
+    return [pony for pony in ponies if (pony["kind"] == kind)]
 
 
 def get_points_for_color(color: str) -> int:
@@ -90,8 +75,7 @@ def add_points(pony: dict) -> dict:
     elif pony["location"] in evaluation_locations["eye_color"]:
         pony["points"] = get_points_for_color(pony["eye_color"])
     else:
-        return "Location does not match any evaluation location"
-    return pony
+        pony["points"] = None
 
 
 def evaluate_ponies(ponies: list) -> list:
@@ -131,15 +115,34 @@ def write(input_file: str, kind: str):
     eye_color = "EYE COLOR"
     location = "LOCATION"
     line = "-"
-    with open(input_file, "r"):
-        ponies_list = sort_by_points(
-            sort_by_name(evaluate_ponies(filter_by_kind(filter_by_location(read(input_file)), kind))))
-        with open(f"results_for_{kind}.txt", "w") as output_file:
-            output_file.write(f"{place_table:<10}{points_table:<10}{name_table:<20}{kind_table:<20}{coat_color:<20}"
-                              f"{mane_color:<20}{eye_color:<20}{location}\n")
-            output_file.write(f"{128 * line}\n")
-            for place, pony in enumerate(ponies_list):
-                output_file.write(f"{format_line(pony, place + 1)}\n")
+    ponies_list = sort_by_points(
+        sort_by_name(evaluate_ponies(filter_by_kind(filter_by_location(read(input_file)), kind))))
+    ponies_string = ""
+    for place, pony in enumerate(ponies_list):
+        ponies_string += f"{format_line(pony, place + 1)}\n"
+    ponies_string = ponies_string.strip()
+
+    try:
+        with open(input_file, "r"):
+            with open(f"results_for_{kind}.txt", "w") as output_file:
+                output_file.write(f"{place_table:<10}{points_table:<10}{name_table:<20}{kind_table:<20}{coat_color:<20}"
+                                  f"{mane_color:<20}{eye_color:<20}{location}\n")
+                output_file.write(f"{128 * line}\n")
+                output_file.write(ponies_string)
+
+    except FileNotFoundError:
+        return
+
+
+if __name__ == '__main__':
+    write("ponies.txt", "Earth")
+
+
+
+
+
+
+
 
 
 

@@ -32,7 +32,8 @@ def read(read_file: str) -> list:
                 else:
                     ponies_list.append(extract_information(decode(line)))
     except FileNotFoundError:
-        return FileNotFoundError
+        print("File not found!")
+        raise
 
     return ponies_list
 
@@ -118,9 +119,6 @@ def write(input_file: str, kind: str):
     location = "LOCATION"
     line = "-"
 
-    if read(input_file) == FileNotFoundError:
-        return "File not found!"
-
     ponies_list = sort_by_points(
         sort_by_name(evaluate_ponies(filter_by_kind(filter_by_location(read(input_file)), kind))))
     ponies_string = ""
@@ -138,7 +136,7 @@ def write(input_file: str, kind: str):
 
 
 if __name__ == '__main__':
-    write("ponies.txt", "Earth")
+    read("ponies1.txt")
 
 
 

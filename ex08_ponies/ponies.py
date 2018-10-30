@@ -31,9 +31,10 @@ def read(read_file: str) -> list:
                     continue
                 else:
                     ponies_list.append(extract_information(decode(line)))
-    except FileNotFoundError:
-        print("File not found!")
-        raise
+    except:
+        raise FileNotFoundError("File not found!")
+
+
 
     return ponies_list
 
@@ -69,14 +70,19 @@ def add_points(pony: dict) -> dict:
         'mane_color': ['Schoolhouse', 'Crusaders Clubhouse', 'Golden Oak Library'],
         'eye_color': ['Train station', 'Castle of Friendship', 'Retirement Village']
     }
-    if pony["location"] in evaluation_locations["coat_color"]:
-        pony["points"] = get_points_for_color(pony["coat_color"])
-    elif pony["location"] in evaluation_locations["mane_color"]:
-        pony["points"] = get_points_for_color(pony["mane_color"])
-    elif pony["location"] in evaluation_locations["eye_color"]:
-        pony["points"] = get_points_for_color(pony["eye_color"])
-    else:
+    if "location" not in pony.keys():
         return None
+    elif pony["location"] == None:
+        return None
+    else:
+        if pony["location"] in evaluation_locations["coat_color"]:
+            pony["points"] = get_points_for_color(pony["coat_color"])
+        elif pony["location"] in evaluation_locations["mane_color"]:
+            pony["points"] = get_points_for_color(pony["mane_color"])
+        elif pony["location"] in evaluation_locations["eye_color"]:
+            pony["points"] = get_points_for_color(pony["eye_color"])
+        else:
+            return None
 
     return pony
 

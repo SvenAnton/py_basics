@@ -61,8 +61,8 @@ def names_to_be_eliminated(points_dict: dict, names: set = None, lowest_score: i
         names.add(first_name_in_dict)
     names_to_be_eliminated({i: points_dict[i] for i in points_dict if i != first_name_in_dict}, names, lowest_score)
 
-    return "".join(names) if len(names) < 2 else list(names)
-
+    #return "".join(names) if len(names) < 2 else list(names)
+    return names
 
 def people_in_the_know(hours_passed) -> int:
     """

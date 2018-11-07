@@ -63,9 +63,9 @@ def names_to_be_eliminated(points_dict: dict, names: set = None, lowest_score: i
 
     return "".join(names) if len(names) < 2 else list(names)
 
-
+"""
 def people_in_the_know(hours_passed) -> int:
-    """
+    
     Return the number of people who know a rumor given the hours passed from the initial release.
 
     Every hour there is a recess where everybody can talk to everybody. Rumors always spread in
@@ -82,13 +82,14 @@ def people_in_the_know(hours_passed) -> int:
     :param hours_passed: the hours passed from the initial release.
     :param cache: helper to store already calculated results.
     :return: the number of people that have heard the rumor.
-    """
+    
     if hours_passed == 0:
         return 0
     elif hours_passed == 1:
         return 1
 
     return people_in_the_know(hours_passed - 1) + people_in_the_know(hours_passed - 2)
+"""
 
 def traversable_coordinates(world_map: list, coord: tuple = (0, 0), traversable_coords: set = None) -> set:
     """

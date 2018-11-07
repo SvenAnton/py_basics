@@ -25,7 +25,7 @@ def count_portions(number_of_participants: int, day: int) -> int:
     return number_of_participants * 4 + count_portions(number_of_participants - 1, day - 1)
 
 
-def names_to_be_eliminated(points_dict: dict, names: set=None, lowest_score: int=None) -> set:
+def names_to_be_eliminated(points_dict: dict, names: set = None, lowest_score: int = None) -> set:
     """
     Recursively find the names that are to be eliminated.
 
@@ -64,7 +64,7 @@ def names_to_be_eliminated(points_dict: dict, names: set=None, lowest_score: int
     return "".join(names) if len(names) < 2 else list(names)
 
 
-def people_in_the_know(hours_passed, cache: dict=None) -> int:
+def people_in_the_know(hours_passed) -> int:
     """
     Return the number of people who know a rumor given the hours passed from the initial release.
 
@@ -91,7 +91,7 @@ def people_in_the_know(hours_passed, cache: dict=None) -> int:
     return people_in_the_know(hours_passed - 1) + people_in_the_know(hours_passed - 2)
 
 
-def traversable_coordinates(world_map: list, coord: tuple=(0, 0), traversable_coords: set=None) -> set:
+def traversable_coordinates(world_map: list, coord: tuple = (0, 0), traversable_coords: set = None) -> set:
     """
     Return the coordinates that are traversable by humans or adjacent to traversable coordinates.
 

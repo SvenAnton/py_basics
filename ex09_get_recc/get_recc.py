@@ -61,8 +61,9 @@ def names_to_be_eliminated(points_dict: dict, names: set = None, lowest_score: i
         names.add(first_name_in_dict)
     names_to_be_eliminated({i: points_dict[i] for i in points_dict if i != first_name_in_dict}, names, lowest_score)
 
-    #return "".join(names) if len(names) < 2 else list(names)
+    # return "".join(names) if len(names) < 2 else list(names)
     return names
+
 
 def people_in_the_know(hours_passed) -> int:
     """
@@ -134,13 +135,13 @@ def traversable_coordinates(world_map: list, coord: tuple = (0, 0), traversable_
             coordinate tuples with respect to starting coord
     """
     traversable_coords = set()
-    if world_map == ([[]] or []):
+    if world_map == [[]] or world_map == []:
         return traversable_coords
     if len(coord) > 2 or coord[0] < 0 or coord[1] < 0:
         return traversable_coords
 
     if len(world_map) < coord[1]:
-        return  traversable_coords
+        return traversable_coords
     for row in world_map:
         if len(row) < coord[0]:
             return traversable_coords

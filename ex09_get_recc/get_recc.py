@@ -133,4 +133,14 @@ def traversable_coordinates(world_map: list, coord: tuple = (0, 0), traversable_
     :return: set of traversable and traversable-adjacent cell
             coordinate tuples with respect to starting coord
     """
-    pass
+    traversable_coords = set()
+    if world_map == ([[]] or []):
+        return traversable_coords
+    if len(coord) > 2 or coord[0] < 0 or coord[1] < 0:
+        return traversable_coords
+
+    if len(world_map) < coord[1]:
+        return  traversable_coords
+    for row in world_map:
+        if len(row) < coord[0]:
+            return traversable_coords

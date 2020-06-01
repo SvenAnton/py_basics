@@ -2,7 +2,7 @@
 
 
 def hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2):
-    """"Välistab  lootusetud juhtumid. Muutujad on selgitatud põhifuntsioonis."""
+    """"Välistab lootusetud juhtumid. Muutujad on selgitatud põhifuntsioonis."""
     if (start_pos1 < start_pos2 and jump_distance1 == 0) or (start_pos2 < start_pos1 and jump_distance2 == 0):
         return True
     elif (start_pos1 < start_pos2 and speed1 <= speed2) or (start_pos2 < start_pos1 and speed2 <= speed1):
@@ -20,7 +20,7 @@ def new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, j
         else:
             return probable_meeting_place_minus - sleep1 * jump_distance1
     else:
-        return probable_meeting_place_minus - 1
+        return (probable_meeting_place_minus - 1)
 
 
 def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
@@ -50,6 +50,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         return start_pos1
 
     if hopless_cases(start_pos1, jump_distance1, speed1, start_pos2, jump_distance2, speed2):
+        print("lootusetu case")
         return -1
 
     probable_meeting_place_minus = new_start_position(start_pos1, start_pos2, speed1, speed2, sleep1, sleep2, jump_distance1, jump_distance2)
@@ -72,4 +73,7 @@ def meet_me(pos1, jump_distance1, sleep1, pos2, jump_distance2, sleep2):
         to_sleep2 -= 1
         if ((start_pos1 < start_pos2) and (pos2 < pos1)) or ((start_pos2 < start_pos1) and (pos1 < pos2)):
             if abs(pos1 - pos2) > sleep1 * (jump_distance1 or sleep2 * jump_distance2):
+                print("astus mööda")
                 return -1
+
+print(meet_me(24, 28, 51, 24, 56, 82))

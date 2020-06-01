@@ -131,7 +131,7 @@ def check_control_number(id_code: str):
     """
     kontrollnumber1 = 0
 
-    for i in range(10):
+    for i in range(10):   # pane vähem enda numberid ja rohkem muutujaid. Siin võiks teoorias 10ne asemel olla midagi muud.
         if i > 8:
             kontrollnumber1 += int(id_code[i:i + 1:])
         else:
@@ -178,7 +178,7 @@ def get_gender(gender_number: int):
 
     Kontrollib isikukoodi esimese numbri põhjal, kas tegu on mehe või naisega.
     """
-    if gender_number in (1, 3, 5):
+    if gender_number in (1, 3, 5):   # saab kohe otse returni kasutada return if.... ja annab kohe true v fasle
         return "male"
     else:
         return "female"

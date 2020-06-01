@@ -20,7 +20,7 @@ def simulate(world_map: list, flight_plan: list) -> list:
 
     Pirates under Shippy's starting position are always eliminated ('-').
     If Shippy fights pirates in high presence area, it first turns into low presence ('w')
-     and then from low presence into no presence area. ('-').
+     and then from low presence into no presence area ('-').
     """
     start_pos_y = list_to_dictionary_converter(world_map)[1]
     start_pos_x = list_to_dictionary_converter(world_map)[2]
@@ -52,7 +52,6 @@ def simulate(world_map: list, flight_plan: list) -> list:
                     start_pos_x -= 1
             else:
                 continue
-            print(start_pos_y, start_pos_x)
         except KeyError:
             continue
 
@@ -62,7 +61,6 @@ def simulate(world_map: list, flight_plan: list) -> list:
         if space_dict[(start_pos_y, start_pos_x)] == 'W':
             space_dict.update({(start_pos_y, start_pos_x): "w"})
 
-    print(start_pos_y, start_pos_x)
     space_dict.update({(start_pos_y, start_pos_x): "X"})
 
     return dictionary_to_list_converter(space_dict, width, height)
@@ -95,9 +93,48 @@ def dictionary_to_list_converter(space_map: dict, width: int, height: int) -> li
 
     return space_list
 
-space_list1 = [
-        "XW"
-    ]
-fligth = ["W", "W", "W", "W", "E"]
 
-print(simulate(space_list1, fligth))
+if __name__ == '__main__':
+    space_list1 = [
+        "#www-",
+        "wXw#-",
+    ]
+    flight_plan1 = ["N", "E", "E", "S", "E"]
+    print("\n".join(simulate(space_list1, flight_plan1)))
+    print(list_to_dictionary_converter(flight_plan1))
+
+    # #---X
+    # w-w#-
+
+    assert simulate(space_list1, flight_plan1) == ["#---X", "w-w#-"]
+
+    print()
+
+    space_list2 = [
+        "WWWW",
+        "-wwW",
+        "X-#W",
+    ]
+
+    flight_plan2 = ["N", "N", "E", "E", "S", "W", "W", "S", "E", "E"]
+    print("\n".join(simulate(space_list2, flight_plan2)))
+
+    # wwwW
+    # ---W
+    # -X#W
+
+    assert simulate(space_list2, flight_plan2) == ["wwwW", "---W", "-X#W"]
+
+    assert list_to_dictionary_converter(["-"]) == ({(0, 0): "-"}, 0, 0)
+    assert list_to_dictionary_converter(['W#', '-X']) == ({(0, 0): 'W', (0, 1): '#', (1, 0): '-', (1, 1): '-'}, 1, 1)
+
+    assert list_to_dictionary_converter(
+        world_map=space_list1
+    ) == ({(0, 0): '#', (0, 1): 'w', (0, 2): 'w', (0, 3): 'w', (0, 4): '-', (1, 0): 'w', (1, 1): '-', (1, 2): 'w',
+           (1, 3): '#', (1, 4): '-'}, 1, 1)
+
+    assert dictionary_to_list_converter(
+        {(0, 0): '#', (0, 1): 'w', (0, 2): 'w', (0, 3): 'w', (0, 4): '-', (1, 0): 'w', (1, 1): 'X', (1, 2): 'w',
+         (1, 3): '#', (1, 4): '-'}, 5, 2) == space_list1
+
+    assert dictionary_to_list_converter({(0, 0): "X"}, 1, 1) == ["X"]

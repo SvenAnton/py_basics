@@ -1,6 +1,7 @@
 """Encode and decode Caesar cipher."""
 
 
+# võiks asendada encode ja decode ühise funktsioonina, sest ainukene vahe seal on + või miinu shift.
 def renumber(index: int, alphabet: str):
     """"Aitab taandada olukordi.
 
